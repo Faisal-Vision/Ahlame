@@ -1,0 +1,64 @@
+@media (max-width:1600px) {}
+
+@media (max-width:1200px) {
+  .container {
+    padding: 0 15px !important;
+  }
+}
+
+@media (max-width:991px) {
+  .hidden-mob {
+    display: none !important;
+  }
+  .inner-pages {
+    padding: 15px;
+  }
+}
+
+@media (max-width:767px) {
+}
+
+@media (max-width:560px) {
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 1024px) and (-webkit-orientation: landscape),(orientation: landscape) {
+  /* CSS styles specific to mobile devices in landscape orientation */
+  /* Add your styles here */
+  .cdk-overlay-container{
+    overflow: auto;
+    .cdk-overlay-backdrop{
+      min-height: 600px;
+    }
+    .cdk-global-overlay-wrapper{
+      // margin: 20px 0;
+      margin: 0 0;
+
+    }
+  }
+}
+// @media (max-width:768px) and (-webkit-orientation: landscape),(orientation: landscape){
+//   .cdk-overlay-container{
+//     overflow-y: scroll;
+//     overflow-x: hidden;
+//     .cdk-overlay-backdrop{
+//       min-height: 600px;
+//     }
+//     .cdk-global-overlay-wrapper{
+//       margin: 20px;
+//       min-height: 540px;
+//       .cdk-overlay-pane.changeGradeDialog{
+//         height: 100%;
+//         overflow-x: hidden;
+//         overflow-y: hidden;
+//         border-radius: 30px;
+//         max-height: unset;
+//       }
+//     }
+//   }
+// }
+// @media(min-width: 1200px){
+//   .container{
+//     width: 100% !important;
+//     max-width: 100% !important;
+//     padding: 0 3rem !important;
+//   }
+// }

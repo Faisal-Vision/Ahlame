@@ -1,0 +1,41 @@
+<section class="banner-area">
+  <section class="banner__inner-page bg-image  bg-image"
+    [style.background]="'url(https://templates.g5plus.net/glowing-bootstrap-5/assets/images/hero-slider/hero-slider-05.jpg)'">
+    <div class="shape3 wow slideInRight" data-wow-delay="200ms" data-wow-duration="1500ms">
+      <img class="sway__animationX" [src]="'https://templates.g5plus.net/glowing-bootstrap-5/assets/images/background/bg-landing-home-02.png'" alt="shape" loading="lazy" />
+    </div>
+    <div class="container  cssanimation fadeInRight">
+      <div class="banner__content" *ngFor="let slide of bannerSlides">
+        <h1 data-animation="slideInRight" data-duration="2s" data-delay=".5s" class="text-white">
+          {{slide.content.title.text | translate}}
+
+        </h1>
+        <p data-animation="slideInRight" data-duration="2s" data-delay=".7s" class="mt-20">
+          {{slide.content.description.text | translate}}
+          <!-- <br>{{slide.content.description.breakingText | translate}} -->
+        </p>
+        <!-- <a data-animation="slideInRight" data-duration="2s" data-delay=".9s" [routerLink]="[slide.content.button.link]"
+          class="btn-one mt-60">
+          {{slide.content.button.text | translate}} <i class="fa-regular fa-arrow-right-long"></i>
+        </a> -->
+      </div>
+    </div>
+  </section>
+</section>
+
+<!-- <div class="relative ShapesStyle">
+  <div class="shape overflow-hidden z-1 text-white dark:text-slate-900">
+    <svg viewBox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 48H1437.5H2880V0H2160C1442.5 52 720 0 720 0H0V48Z" fill="currentColor"></path>
+    </svg>
+  </div>
+</div> -->
+
+
+
+<!-- <app-manager-area></app-manager-area> -->
+
+<!-- <app-avision-area></app-avision-area> -->
+
+<!-- <app-value-core></app-value-core> -->
+

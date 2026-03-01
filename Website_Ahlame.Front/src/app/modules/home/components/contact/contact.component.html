@@ -1,0 +1,203 @@
+<main>
+  <!-- ═══ Banner ═══ -->
+  <section class="banner__inner-page bg-image pt-100 pb-100"
+    [style.background]="'url(https://templates.g5plus.net/glowing-bootstrap-5/assets/images/hero-slider/hero-slider-26.jpg)'">
+    <div class="shape3 wow slideInRight" data-wow-delay="200ms" data-wow-duration="1500ms">
+      <img class="sway__animationX"
+        [src]="'https://templates.g5plus.net/glowing-bootstrap-5/assets/images/background/bg-landing-home-02.png'"
+        alt="shape" loading="lazy" />
+    </div>
+    <div class="container cssanimation fadeInRight">
+      <h2 class="wow fadeInUp" data-wow-delay="00ms" data-wow-duration="1500ms">
+        {{ "Contact Us" | translate }}
+      </h2>
+      <div class="breadcrumb-list wow fadeInUp" data-wow-delay="200ms" data-wow-duration="1500ms">
+        <a [routerLink]="['/']">{{ "Home" | translate }}</a>
+        <span><i class="fa-regular fa-angles-right mx-2"></i>{{ "Contact Us" | translate }}</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ Contact Info Cards ═══ -->
+  <section class="contact-info-strip pt-60 pb-0">
+    <div class="container">
+      <div class="row g-4">
+
+        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="00ms" data-wow-duration="1200ms">
+          <div class="contact-info-card">
+            <div class="contact-info-card__icon">
+              <i class="fa-solid fa-phone"></i>
+            </div>
+            <div class="contact-info-card__body">
+              <span class="contact-info-card__label">{{ "Phone Call" | translate }}</span>
+              <a href="tel:+966537759559" class="contact-info-card__value" dir="ltr">
+                +(966) 53 775 9559
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="150ms" data-wow-duration="1200ms">
+          <div class="contact-info-card contact-info-card--gold">
+            <div class="contact-info-card__icon">
+              <i class="fa-solid fa-envelope"></i>
+            </div>
+            <div class="contact-info-card__body">
+              <span class="contact-info-card__label">{{ "Email" | translate }}</span>
+              <a href="mailto:support@ahlaami.com" class="contact-info-card__value">
+                support&#64;ahlaami.com
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="300ms" data-wow-duration="1200ms">
+          <div class="contact-info-card">
+            <div class="contact-info-card__icon">
+              <i class="fa-solid fa-location-dot"></i>
+            </div>
+            <div class="contact-info-card__body">
+              <span class="contact-info-card__label">{{ "Location" | translate }}</span>
+              <span class="contact-info-card__value">
+                {{ "Kingdom of Saudi Arabia – Riyadh – Eastern Ring Road." | translate }}
+              </span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ Contact Form + Left Panel ═══ -->
+  <section class="contact-area pt-60 pb-120 cssanimation fadeInBottom">
+    <div class="container">
+      <div class="contact__wrapper">
+
+        <!-- ── Left panel: green gradient ── -->
+        <div class="contact__left-panel wow fadeInLeft" data-wow-delay="200ms" data-wow-duration="1500ms">
+
+          <!-- Deco corner -->
+          <div class="contact__panel-deco"></div>
+
+          <div class="contact__panel-inner">
+            <h3 class="contact__panel-title">{{ "Contact Information" | translate }}</h3>
+
+            <!-- Divider -->
+            <div class="contact__panel-divider"></div>
+
+            <!-- Info items -->
+            <ul class="contact__panel-list">
+              <li>
+                <span class="cp-icon"><i class="fa-solid fa-phone"></i></span>
+                <div>
+                  <small>{{ "Phone" | translate }}</small>
+                  <a href="tel:+966537759559" dir="ltr">+(966) 53 775 9559</a>
+                </div>
+              </li>
+              <li>
+                <span class="cp-icon"><i class="fa-solid fa-envelope"></i></span>
+                <div>
+                  <small>{{ "Email" | translate }}</small>
+                  <a href="mailto:support@ahlaami.com">support&#64;ahlaami.com</a>
+                </div>
+              </li>
+              <li>
+                <span class="cp-icon"><i class="fa-solid fa-location-dot"></i></span>
+                <div>
+                  <small>{{ "Location" | translate }}</small>
+                  <span>{{ "Kingdom of Saudi Arabia – Riyadh – Eastern Ring Road." | translate }}</span>
+                </div>
+              </li>
+            </ul>
+
+            <!-- Social -->
+            <div class="contact__panel-social">
+              <p>{{ "Follow Social:" | translate }}</p>
+              <div class="social-links">
+                <a href="#0" aria-label="Facebook">
+                  <i class="fa-brands fa-facebook-f"></i>
+                </a>
+                <a href="#0" aria-label="Instagram">
+                  <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="#0" aria-label="Snapchat">
+                  <i class="fa-brands fa-snapchat"></i>
+                </a>
+                <a href="#0" aria-label="TikTok">
+                  <i class="fa-brands fa-tiktok"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Right panel: form ── -->
+        <div class="contact__right-panel wow fadeInRight" data-wow-delay="200ms" data-wow-duration="1500ms">
+
+          <div  class="section-header">
+            <div  data-wow-delay="00ms" data-wow-duration="1200ms"
+              class="mgr-header wow fadeInUp"><span  class="mgr-header__eyebrow"><span
+                   class="mgr-header__line"></span> {{ "GET IN TOUCH" | translate }} <span
+                   class="mgr-header__line"></span></span></div>
+          </div>
+
+
+          <div class="contact__form">
+            <form action="#">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="name">{{ "Your Name" | translate }}</label>
+                  <input id="name" type="text"/>
+                </div>
+                <div class="form-group">
+                  <label for="email">{{ "Your Email" | translate }}</label>
+                  <input id="email" type="email"  />
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="phone">{{ "Phone" | translate }}</label>
+                  <input id="phone" type="tel"  />
+                </div>
+                <div class="form-group">
+                  <label for="subject">{{ "Subject" | translate }}</label>
+                  <input id="subject" type="text" />
+                </div>
+              </div>
+
+              <div class="form-group form-group--full">
+                <label for="message">{{ "Write Message" | translate }}</label>
+                <textarea id="message" rows="5"
+                  ></textarea>
+              </div>
+
+              <button type="submit" class="contact__submit-btn">
+                {{ "Send Message" | translate }}
+                <i class="fa-regular fa-arrow-left-long"></i>
+              </button>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ Map ═══ -->
+  <div class="contact__map">
+    <div class="contact__map-overlay">
+      <div class="contact__map-label">
+        <i class="fa-solid fa-location-dot"></i>
+        <span>{{ "Find Us" | translate }}</span>
+      </div>
+    </div>
+    <iframe src="https://www.google.com/maps?q=حي%20المعذر%20الشمالي%20شارع%20التخصصي%206822%20الرياض&output=embed"
+      width="100%" height="480" style="border:0;" allowfullscreen loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
+
+</main>
+<app-footer></app-footer>

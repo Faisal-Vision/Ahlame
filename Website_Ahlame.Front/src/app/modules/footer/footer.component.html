@@ -1,0 +1,109 @@
+  <!-- Footer area start here -->
+  <footer class="footer-area ">
+    <div class="footer__shape-regular-left wow slideInLeft" data-wow-delay="00ms" data-wow-duration="1500ms">
+      <app-lazy-load-image [imageSrc]="'assets/images/shape/footer-regular-left.png'" alt="shape" loading="lazy"/>
+    </div>
+    <div class="footer__shape-solid-right wow slideInRight" data-wow-delay="00ms" data-wow-duration="1500ms">
+      <app-lazy-load-image class="sway_Y__animation" [imageSrc]="'assets/images/shape/footer-regular-right.png'" alt="shape" loading="lazy"/>
+    </div>
+    <div class="footer__shadow-shape">
+      <app-lazy-load-image [imageSrc]="'assets/images/banner/site-footer-shape-1.webp'" alt="shadow" loading="lazy"/>
+    </div>
+    <div class="container">
+      <div class="footer__wrp pt-60 pb-100">
+        <div class="footer__item item-big wow fadeInUp" data-wow-delay="00ms" data-wow-duration="1500ms">
+          <a routerLink="/" class="logo mb-30">
+            <img [src]="'https://templates.g5plus.net/glowing-bootstrap-5/assets/images/others/logo-white.png'" alt="image" style="width:100%;" loading="lazy"/>
+          </a>
+          <p>
+            {{"Transforming your vision into reality with cutting-edge technology and strategic insights." | translate}}
+          </p>
+          <div class="social-icon">
+            <a routerLink="#0"><i class="fa-brands fa-facebook-f"></i></a>
+            <a routerLink="#0"><i class="fa-brands fa-twitter"></i></a>
+            <a routerLink="#0"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a routerLink="#0"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="footer__item item-big wow fadeInUp" data-wow-delay="200ms" data-wow-duration="1500ms">
+          <h3 class="footer-title">{{"IT Solution" | translate}}</h3>
+          <ul class="border-4 border-danger-subtle">
+            <li *ngFor=" let service of services.slice(0, 4)">
+              <a [routerLink]="['/service-details/' + service.name]"><i class="fa-regular fa-angles-right me-1"></i>
+                {{ service.title | translate }}</a>
+            </li>
+        
+
+          </ul>
+        </div>
+        <div class="footer__item item-sm wow fadeInUp" data-wow-delay="400ms" data-wow-duration="1500ms">
+          <h3 class="footer-title">{{"Quick Link" | translate}}</h3>
+          <ul>
+            <li>
+            </li>
+         
+            <li><a routerLink="/service"><i class="fa-regular fa-angles-right me-1"></i>
+                {{"Our Services" | translate}}</a>
+            </li>
+            <!-- <li><a routerLink="/case"><i class="fa-regular fa-angles-right me-1"></i> {{"Our Projects" | translate}}</a>
+            </li> -->
+            <li><a routerLink="/contact"><i class="fa-regular fa-angles-right me-1"></i>
+                {{"Contact Us" | translate}}</a></li>
+                   <li><a routerLink="/about"><i class="fa-regular fa-angles-right me-1"></i>
+                {{"About" | translate}} </a></li>
+          </ul>
+        </div>
+        <div class="footer__item item-big wow fadeInUp d-flex flex-column" data-wow-delay="600ms"
+          data-wow-duration="1500ms">
+          <h3 class="footer-title">{{"Contact Us" | translate}}</h3>
+          <p class="mb-20">{{"Kingdom of Saudi Arabia – Riyadh – Eastern Ring Rd." | translate}}</p>
+          <ul class="footer-contact">
+            <!-- <li>
+              <i class="fa-regular fa-clock"></i>
+              <div class="info">
+                <h5>
+                  {{"Opening Hours" | translate}}:
+                </h5>
+                <p>{{"Sunday - Thursday: 9.00 AM - 4.00 PM" | translate}}</p>
+              </div>
+            </li> -->
+            <li>
+              <i class="fa-solid fa-phone"></i>
+              <div class="info">
+                <h5>
+                  {{"Phone Call" | translate}}:
+                </h5>
+                <p>
+                  <a href="tel:+962782573456" [style]="{'direction': 'ltr'}">+(966) 53 775 9559</a>
+                </p>
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-envelope"></i>
+              <div class="info">
+                <h5>
+                  {{"Email" | translate}}:
+                </h5>
+                <p>
+                  <a href="mailto:info&#64;vd-techs.com" class="ms-1">support@Ahlame.org</a>
+                </p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer__copyright">
+      <div class="container">
+        <div class="d-flex gap-1 flex-wrap align-items-center justify-content-md-between justify-content-center">
+          <p class="wow fadeInDown" data-wow-delay="00ms" data-wow-duration="1500ms">&copy; All Copyright 2024
+            by <a routerLink="/">Ahlame.org</a></p>
+          <ul class="d-flex align-items-center gap-4 wow fadeInDown" data-wow-delay="200ms" data-wow-duration="1500ms">
+            <li><a routerLink="/terms-and-conditions">{{"Terms & Condition" | translate}}</a></li>
+            <li><a routerLink="/privacy-policy">{{"Privacy Policy" | translate}}</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- Footer area end here -->

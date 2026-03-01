@@ -1,0 +1,197 @@
+<main>
+  <!-- ═══ Banner ═══ -->
+  <section
+    class="banner__inner-page bg-image pt-100 pb-100 bg-image"
+    [style.background]="'url(https://templates.g5plus.net/glowing-bootstrap-5/assets/images/hero-slider/hero-slider-26.jpg)'">
+
+    <div class="shape3 wow slideInRight" data-wow-delay="200ms" data-wow-duration="1500ms">
+      <img class="sway__animationX"
+        [src]="'https://templates.g5plus.net/glowing-bootstrap-5/assets/images/background/bg-landing-home-02.png'"
+        alt="shape" loading="lazy"/>
+    </div>
+
+    <div class="container cssanimation fadeInRight">
+      <h2 class="wow fadeInUp" data-wow-delay="00ms" data-wow-duration="1500ms">
+        {{ "Service Details" | translate }}
+      </h2>
+      <div class="breadcrumb-list wow fadeInUp" data-wow-delay="200ms" data-wow-duration="1500ms">
+        <a routerLink="/">{{ "Home" | translate }}</a>
+        <span *ngIf="currentCategory">
+          <i class="fa-regular fa-angles-right mx-2"></i>
+          {{ currentCategory.category | translate }}
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ Main Content ═══ -->
+  <section class="pt-60 pb-120 cssanimation fadeInBottom">
+    <div class="container">
+      <div class="row g-4">
+
+        <!-- ── Left Column ── -->
+        <div class="col-lg-8 order-2 order-lg-1">
+          <div class="service-single__left-item">
+
+            <!-- Service Title -->
+            <div class="mgr-header wow fadeInUp" data-wow-delay="00ms" data-wow-duration="1200ms">
+              <span class="mgr-header__eyebrow">
+                <span class="mgr-header__line"></span>
+                {{ service.title | translate }}
+                <span class="mgr-header__line"></span>
+              </span>
+            </div>
+
+            <!-- Category Summary -->
+            <div *ngIf="currentCategory" class="sd__summary-box wow fadeInUp" data-wow-delay="100ms">
+              <div class="sd__summary-icon">
+                <i [class]="currentCategory.icon"></i>
+              </div>
+              <p>{{ currentCategory.summary | translate }}</p>
+            </div>
+
+            <!-- Service Description -->
+            <div class="sd__description wow fadeInUp" data-wow-delay="100ms">
+              <p>{{ service.description | translate }}</p>
+            </div>
+
+            <!-- Service Image -->
+            <div class="sd__image-wrapper wow fadeInUp" data-wow-delay="150ms">
+              <app-lazy-load-image
+                [imageSrc]="service.image"
+                [defaultImage]="service.defaultImage"
+                [alt]="service.title"
+                [loading]="'lazy'"/>
+              <div class="sd__image-overlay"></div>
+            </div>
+
+            <!-- How We Can Help -->
+            <div class="sd__help-box wow fadeInUp" data-wow-delay="100ms">
+              <h3 class="sd__box-title">
+                <span class="sd__box-icon">
+                  <i class="fa-solid fa-handshake-angle"></i>
+                </span>
+                {{ "How We Can Help" | translate }}
+              </h3>
+              <p>{{ service.HowWeCanHelp | translate }}</p>
+            </div>
+
+            <!-- Benefits -->
+            <div class="wow fadeInUp" data-wow-delay="100ms">
+              <h4 class="sd__section-title mb-20">
+                {{ "Benefits With Our Service" | translate }}
+              </h4>
+              <div class="sd__benefits-box">
+                <ul class="sd__benefits-list">
+                  <li *ngFor="let benefit of service.benefits" class="sd__benefit-item">
+                    <span class="sd__benefit-icon">
+                      <i class="fa-solid fa-check"></i>
+                    </span>
+                    <span class="sd__benefit-text">{{ benefit | translate }}</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- FAQ -->
+            <div class="wow fadeInUp" data-wow-delay="100ms">
+              <h4 class="sd__section-title mb-20">
+                {{ "Suggested questions" | translate }}
+              </h4>
+              <div class="sd__faq-section">
+                <div class="accrodion-grp faq-one-accrodion">
+                  <div
+                    class="accrodion"
+                    *ngFor="let item of service.faq; let i = index"
+                    [ngClass]="{ 'active': faqActiveIndex === i }">
+
+                    <div class="accrodion-title" (click)="toggleFAQ(i)">
+                      <h4>{{ item.question | translate }}</h4>
+                    </div>
+
+                    <div class="accrodion-content"
+                         [style.max-height]="faqActiveIndex === i ? '500px' : '0'">
+                      <div class="inner">
+                        <p>{{ item.answer | translate }}</p>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div><!-- /service-single__left-item -->
+        </div>
+
+        <!-- ── Sidebar ── -->
+        <div class="col-lg-4 order-1 order-lg-2">
+          <div class="service-single__right-item">
+
+            <!-- Sidebar title -->
+            <div class="mgr-header mb-20 wow fadeInUp" data-wow-delay="00ms" data-wow-duration="1200ms">
+              <span class="mgr-header__eyebrow">
+                <span class="mgr-header__line"></span>
+                {{ "All Services" | translate }}
+                <span class="mgr-header__line"></span>
+              </span>
+            </div>
+
+            <div class="sidebar-widget">
+              <div class="service-sidebar__accordion">
+
+                <div
+                  *ngFor="let category of categories; let catIndex = index"
+                  class="sidebar-category"
+                  [ngClass]="{ 'active': sidebarActiveIndex === catIndex }">
+
+                  <!-- Category Header -->
+                  <div class="sidebar-category__header" (click)="toggleSidebarCategory(catIndex)">
+                    <div class="sidebar-category__title-wrapper">
+                      <i [class]="category.icon" class="sidebar-category__icon"></i>
+                      <span class="sidebar-category__title">
+                        {{ category.category | translate }}
+                      </span>
+                    </div>
+                    <div class="sidebar-category__meta">
+                      <span class="sidebar-category__count">{{ category.services.length }}</span>
+                      <i class="fa-solid fa-chevron-down sidebar-category__arrow"></i>
+                    </div>
+                  </div>
+
+                  <!-- Services list -->
+                  <div class="sidebar-category__content"
+                       [style.max-height]="sidebarActiveIndex === catIndex
+                         ? (category.services.length * 56) + 'px'
+                         : '0'">
+                    <ul class="sidebar-services-list">
+                      <li
+                        *ngFor="let service of category.services"
+                        class="sidebar-service-item"
+                        [class.active]="service.title === currentServiceTitle">
+
+                        <a [routerLink]="['/service-details/' + service.name]"
+                           class="sidebar-service-link">
+                          <span class="sidebar-service-name">
+                            {{ service.title | translate }}
+                          </span>
+                          <i class="fa-solid fa-arrow-left sidebar-service-arrow"></i>
+                        </a>
+
+                      </li>
+                    </ul>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div><!-- /row -->
+    </div>
+  </section>
+
+</main>
+<app-footer></app-footer>

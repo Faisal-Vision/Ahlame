@@ -1,0 +1,31 @@
+<main>
+  <!-- Page banner area start here -->
+  <section class="banner__inner-page bg-image pt-100 pb-100 bg-image"
+       [style.background]="'url(https://templates.g5plus.net/glowing-bootstrap-5/assets/images/hero-slider/hero-slider-26.jpg)'">
+    <div _ngcontent-ng-c1426310983="" data-wow-delay="200ms" data-wow-duration="1500ms" class="shape3 wow slideInRight"><img _ngcontent-ng-c1426310983="" alt="shape" loading="lazy" class="sway__animationX" src="https://templates.g5plus.net/glowing-bootstrap-5/assets/images/background/bg-landing-home-02.png"></div>
+    <div class="container">
+      <h2 class="wow fadeInUp" data-wow-delay="00ms" data-wow-duration="1500ms"> الصفحة غير موجودة </h2>
+      <div class="breadcrumb-list wow fadeInUp" data-wow-delay="200ms" data-wow-duration="1500ms">
+        <a [routerLink]="['/']">الرئيسية</a><span><i class="fa-regular fa-angles-right mx-2"></i>404</span>
+      </div>
+    </div>
+  </section>
+  <!-- Page banner area end here -->
+  <!-- Error area start here -->
+  <section class="error-area pt-50 pb-50" >
+    <div class="container">
+      <div class="error__item">
+        <div class="image mb-60">
+          <app-lazy-load-image [imageSrc]="'assets/images/error/404-2.png'" alt="image" loading="lazy"/>
+        </div>
+        <h2>Whoops! This Page Not Found</h2>
+        <div class="btn-two mt-50">
+          <span class="btn-circle">
+          </span>
+          <a [routerLink]="['/']" class="btn-one">Go Back Home</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Error area end here -->
+</main>

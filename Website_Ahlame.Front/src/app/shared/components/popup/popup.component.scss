@@ -1,0 +1,23 @@
+mat-dialog-actions{
+  justify-content: space-evenly;
+  }
+  .modal-header{
+    // background: url('../../../../assets/Img/backmhary.png'), linear-gradient(-20deg, #126c37 3%, #055160 59%, #126c37);
+   color: white;
+   justify-content: center;
+
+    // &:after {
+    //   position: absolute;
+    //   content: "";
+    //   width: 100%;
+    //   height: 10px;
+    //   top: 47px;
+    //   left: 0;
+    //   background: url('../../../../assets/Img/bg-header-top.png') center center repeat-x;
+    //   rotate: 180deg;
+    // }
+  }
+ 
+  .modal-lg{
+    max-width: inherit !important;
+  }

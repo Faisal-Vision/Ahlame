@@ -1,0 +1,51 @@
+@mixin transition() {
+  transition: all 0.3s ease-in-out;
+}
+
+@mixin border-r() {
+  border-radius: 8px;
+}
+
+// mixin that enables css variables in light mode
+@mixin lighten() {
+  --black: #{$black};
+  --blackRgb: #{$blackRgb};
+  --white: #{$white};
+  --whiteRgb: #{$whiteRgb};
+  --gray: #{$gray};
+  --grayLight: #{$grayLight};
+  --light:#{$light};
+  --main:#{$main};
+  --second:#{$second};
+  --green:#{$green};
+  --red:#{$red};
+  --gold:#{$gold};
+  --mdc-filled-button-container-color: #{$main};
+  --mdc-filled-button-label-text-color:#{$white};
+}
+
+// mixin that enables css variables in dark mode
+@mixin darken() {
+  --black: #{$white};
+  --blackRgb: #{$whiteRgb};
+  --white: #{$black};
+  --whiteRgb: #{$blackRgb};
+  --grayLight: #{$grayLight};
+  --gray: #{$white};
+  --light:#{$black};
+  --main:#{$mainDark};
+  --second:#{$second};
+  --green:#{$green};
+  --red:#{$red};
+  --gold:#{$gold};
+  --mdc-filled-button-container-color: #{$main};
+  --mdc-filled-button-label-text-color:#{$black};
+}
+
+
+@mixin swpier() {
+  --swiper-pagination-bullet-width: 10px;
+  --swiper-pagination-bullet-height: 10px;
+  --swiper-pagination-bullet-inactive-color: var(--white);
+  --swiper-pagination-color: var(--white);
+}

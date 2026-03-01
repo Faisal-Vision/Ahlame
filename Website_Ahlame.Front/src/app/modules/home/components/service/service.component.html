@@ -1,0 +1,84 @@
+<main>
+  <!-- Page banner area start here -->
+  <section class="banner__inner-page bg-image pt-100 pb-100 bg-image"
+    [style.background]="'url(https://templates.g5plus.net/glowing-bootstrap-5/assets/images/hero-slider/hero-slider-26.jpg)'">
+
+    <div class="shape3 wow slideInRight" data-wow-delay="200ms" data-wow-duration="1500ms">
+      <img class="sway__animationX" [src]="'https://templates.g5plus.net/glowing-bootstrap-5/assets/images/background/bg-landing-home-02.png'" alt="shape" loading="lazy" />
+    </div>
+    <div class="container cssanimation fadeInRight">
+      <h2 class="wow fadeInUp" data-wow-delay="00ms" data-wow-duration="1500ms"> {{"IT Service" | translate}} </h2>
+      <div class="breadcrumb-list wow fadeInUp" data-wow-delay="200ms" data-wow-duration="1500ms">
+        <a routerLink="/">{{"Home" | translate}}</a><span><i class="fa-regular fa-angles-right mx-2"></i>
+          {{"IT Service" | translate}}
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service area start here -->
+  <section class="service-inner-area pt-20 pb-20 ">
+    <div class="container">
+ <ng-container *ngIf="!isLoading && !errorMessage; else serviceState">
+  <div class="row justify-content-evenly">
+
+  <div *ngFor="let category of categories; trackBy: trackByCategory" class="service-category__group cssanimation fadeInBottom col-lg-12">
+    <div class="service-category__header">
+      <div class=" service__icon">
+        <i [class]="category.icon " class="icons-service"></i>
+      </div>
+      <div>
+        <p class="service-category__eyebrow">{{ category.category | translate }}</p>
+        <p class="service-category__summary">{{ category.summary | translate }}</p>
+      </div>
+    </div>
+    <div class="row g-4">
+      <div *ngFor="let service of category.services; trackBy: trackByServiceName" class="col-lg-4 col-md-6">
+        <div class="services-one__single">
+          <div class="services-one__img">
+<img [src]="service.image" [alt]="service.title" class="w-100 h-auto" loading="lazy" />
+          </div>
+          <div class="services-one__content">
+            <div class="services-one__title-box">
+              <span class="services-one__sub-title">{{ service.name | translate }}</span>
+            </div>
+            <p class="services-one__text">
+              {{ (service.description | translate).length > 120
+                  ? ((service.description | translate) | slice:0:100) + '...' 
+                  : (service.description | translate) }}
+            </p>
+            <div class="services-one__arrow">
+              <a [routerLink]="['/service-details/', service.name]">
+                <i class="fas fa-angle-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+</ng-container>
+
+
+<ng-template #serviceState>
+  <div class="row justify-content-center">
+    <div class="col-12 text-center">
+      <div *ngIf="isLoading" class="service__loader">
+        <span class="spinner-border text-primary" role="status" aria-hidden="true"></span>
+      </div>
+      <p *ngIf="!isLoading && errorMessage" class="mt-3 text-danger fw-semibold">
+        {{ errorMessage }}
+      </p>
+    </div>
+  </div>
+</ng-template>
+
+      </div>
+  </section>
+  <!-- Service area end here -->
+</main>
+
+<app-footer></app-footer>
+

@@ -1,0 +1,38 @@
+@import "style.scss";
+
+.badge {
+  height: 100%;
+
+  p {
+    border-radius: 2px;
+    background: var(--red);
+    color: var(--white);
+    font-size: .75rem;
+    font-weight: 600;
+    padding: 2px 4px;
+    position: static;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 15px;
+  }
+
+  &.yellow {
+    p {
+      background: #ffe4b5;
+      color: #000;
+    }
+  }
+  &.red{
+    p{
+      background: rgb(253, 52, 52);
+      color: #000;
+    }
+  }
+  &.skyBlue{
+    p{
+      background-color: #4ba1da;
+      color: #000;
+    }
+  }
+}

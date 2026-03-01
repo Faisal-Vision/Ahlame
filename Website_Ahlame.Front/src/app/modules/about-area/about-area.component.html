@@ -1,0 +1,97 @@
+
+
+
+<section class="about-area sub-bg pt-60 mt-5">
+  <div class="container">
+    <div class="row g-4 align-items-center">
+
+      <!-- ── Image ── -->
+      <div class="col-xl-6 wow fadeInRight" data-wow-delay="200ms" data-wow-duration="1500ms">
+        <div class="about__left-item">
+          <div class="about__img-wrapper">
+            <app-lazy-load-image
+              [imageSrc]="'https://templates.g5plus.net/glowing-bootstrap-5/assets/images/banner/banner-02.jpg'"
+              [defaultImage]="'https://templates.g5plus.net/glowing-bootstrap-5/assets/images/banner/banner-02.jpg'"
+              [alt]="'احلامي للمستحضرات التجميلية'"
+              [loading]="'lazy'"/>
+
+            <!-- floating badge -->
+            <div class="about__badge">
+              <i class="fa-solid fa-award"></i>
+              <span>{{ "Since 2018" | translate }}</span>
+            </div>
+
+            <!-- decorative corner image -->
+            <div class="about__corner-deco"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Content ── -->
+      <div class="col-xl-6">
+        <div class="section-header mb-30">
+
+              <!-- ═══ Section Header ═══ -->
+    <div class="mgr-header wow fadeInUp" data-wow-delay="00ms" data-wow-duration="1200ms">
+      <span class="mgr-header__eyebrow">
+        <span class="mgr-header__line"></span>
+                               {{ "Beauty Born From Passion" | translate }}
+
+        <span class="mgr-header__line"></span>
+      </span>
+    </div>
+
+    
+          <!-- description -->
+          <p class="about__desc wow fadeInUp" data-wow-delay="400ms" data-wow-duration="1500ms">
+            {{ "ABOUT_DESC" | translate }}
+          </p>
+        </div>
+
+        <!-- highlights -->
+        <div class="about__highlights wow fadeInUp" data-wow-delay="500ms" data-wow-duration="1500ms">
+
+          <div class="about__highlight-item">
+            <span class="about__highlight-icon">
+              <i class="fa-solid fa-leaf"></i>
+            </span>
+            <div>
+              <h6>{{ "Natural Ingredients" | translate }}</h6>
+              <p>{{ "Carefully sourced, skin-loving formulas" | translate }}</p>
+            </div>
+          </div>
+
+          <div class="about__highlight-item">
+            <span class="about__highlight-icon about__highlight-icon--gold">
+              <i class="fa-solid fa-flask-vial"></i>
+            </span>
+            <div>
+              <h6>{{ "Dermatologically Tested" | translate }}</h6>
+              <p>{{ "Safe for all skin types and tones" | translate }}</p>
+            </div>
+          </div>
+
+          <div class="about__highlight-item">
+            <span class="about__highlight-icon">
+              <i class="fa-solid fa-star"></i>
+            </span>
+            <div>
+              <h6>{{ "Premium Quality" | translate }}</h6>
+              <p>{{ "Luxury beauty at every price point" | translate }}</p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- CTA -->
+        <div class="about__info mt-40 wow fadeInDown" data-wow-delay="600ms" data-wow-duration="1500ms">
+          <a [routerLink]="['/about']" class="btn-one">
+            {{ "Learn More About Us" | translate }}
+            <i class="fa-regular fa-arrow-right-long"></i>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>

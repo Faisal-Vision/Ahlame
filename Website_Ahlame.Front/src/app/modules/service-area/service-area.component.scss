@@ -1,0 +1,180 @@
+// ─── Swiper Layout ──────────────────────────────────────────────────────────
+.swiper-container {
+  position: relative;
+}
+
+.swiper,
+swiper-container {
+  padding: 12px 4px;
+}
+
+// ─── Navigation Buttons ──────────────────────────────────────────────────────
+.custom-prev-button,
+.custom-next-button {
+  position: absolute;
+  top: 59%;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 35px;
+  height: 35px;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-back));
+  color: white;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  z-index: 10;
+
+  &:hover {
+    background: linear-gradient(90deg, var(--secondary-color), var(--primary-color));
+    transform: translateY(-50%) scale(1.1);
+  }
+
+  i {
+    font-size: 17px;
+  }
+}
+
+.custom-prev-button { left: 50px; }
+.custom-next-button { right: 50px; }
+
+@media (max-width: 768px) {
+  .custom-prev-button,
+  .custom-next-button {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+  }
+  .custom-prev-button { left: 5px; }
+  .custom-next-button { right: 5px; }
+}
+
+@media (max-width: 480px) {
+  .custom-prev-button,
+  .custom-next-button {
+    width: 35px;
+    height: 35px;
+    font-size: 16px;
+  }
+  .custom-prev-button { left: 3px; }
+  .custom-next-button { right: 3px; }
+}
+
+@media (max-width: 375px) {
+  .custom-prev-button,
+  .custom-next-button {
+    width: 30px;
+    height: 30px;
+    font-size: 14px;
+  }
+}
+
+// ─── Service Category Card ────────────────────────────────────────────────────
+.service-category-card {
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  border-radius: 24px;
+  padding: 0 24px 24px; // top padding handled by accent bar
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.07);
+  min-height: 400px;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 28px 55px rgba(0, 0, 0, 0.12);
+  }
+
+  // ── Colored top accent bar driven by CSS variable ──
+  &__accent-bar {
+    height: 4px;
+    width: calc(100% + 48px); // bleed past padding
+    margin: 0 -24px 20px;
+    background: var(--accent, #4b227a);
+    border-radius: 24px 24px 0 0;
+  }
+}
+
+// ─── Icon ────────────────────────────────────────────────────────────────────
+.service__icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: color-mix(in srgb, var(--accent, #4b227a) 12%, transparent);
+  
+  .icons-service {
+    font-size: 1.3rem;
+    color: var(--accent, #4b227a);
+  }
+}
+
+// ─── Eyebrow / Category Name ─────────────────────────────────────────────────
+.service-category-card__eyebrow {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #1a1219;
+  line-height: 1.3;
+}
+
+// ─── Summary ─────────────────────────────────────────────────────────────────
+.service-category-card__summary {
+  color: #6b7280;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-bottom: 16px;
+  margin-top: 12px;
+}
+
+// ─── Services List ───────────────────────────────────────────────────────────
+.service-category-card__list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px;
+
+  li {
+    position: relative;
+    padding-right: 18px; // RTL: bullet on the right
+    padding-left: 0;
+    color: #374151;
+    font-size: 0.9rem;
+    margin-bottom: 7px;
+    line-height: 1.5;
+
+    &::before {
+      content: '';
+      position: absolute;
+      right: 0; // RTL
+      top: 8px;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent, #4b227a);
+      opacity: 0.6;
+    }
+  }
+}
+
+// ─── Read More Link ───────────────────────────────────────────────────────────
+.read-more {
+  font-size: 0.875rem !important;
+  color: var(--accent, #4b227a) !important;
+  font-weight: 600;
+  text-decoration: none !important;
+  transition: gap 0.2s;
+
+  i {
+    transition: transform 0.2s;
+  }
+
+  &:hover i {
+    transform: translateX(4px);
+  }
+}

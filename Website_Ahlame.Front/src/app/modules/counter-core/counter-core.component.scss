@@ -1,0 +1,192 @@
+// ═══════════════════════════════════════════════════════════════
+//  counter-one — Company Highlights
+//  Colors from :root variables only
+// ═══════════════════════════════════════════════════════════════
+
+.counter-one {
+  position: relative;
+  overflow: hidden;
+  padding:unset;
+
+  // ── gradient background ──
+  background: var(--gradient-bg);
+
+  // ── dot texture overlay ──
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='1' cy='1' r='1' fill='rgba(255,255,255,0.06)'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  // ── decorative image — bottom-left corner ──
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: clamp(180px, 28vw, 380px);
+    height: clamp(180px, 28vw, 380px);
+    background-image: url('https://templates.g5plus.net/glowing-bootstrap-5/assets/images/background/bg-landing-home-02.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: bottom left;
+    opacity: 0.18;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .container-fluid { position: relative; z-index: 1; }
+}
+
+// ── Section title ─────────────────────────────────────────────
+.counter-one .section-title {
+  color: var(--white);
+  font-size: 1.9rem;
+  font-weight: 800;
+}
+
+// ── List wrapper ──────────────────────────────────────────────
+.counter-one__box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0;
+  padding: 0 20px;
+  margin: 0;
+}
+
+// ── Single item ───────────────────────────────────────────────
+.counter-one__single {
+  flex: 1 1 220px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 28px 40px;
+  position: relative;
+  transition: var(--transition);
+
+  // vertical separator between items
+  &:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1px;
+    height: 60px;
+    background: rgba(255, 255, 255, .18);
+  }
+
+  [dir='rtl'] &:not(:last-child)::after {
+    left: auto;
+    right: 0;
+  }
+
+  &:hover {
+    transform: translateY(-6px);
+
+    .counter-one__icon i   { transform: rotate(-10deg) scale(1.12); }
+    .counter-one__shape    { transform: scale(1.25); opacity: .5; }
+  }
+}
+
+// ── Icon container ────────────────────────────────────────────
+.counter-one__icon {
+  position: relative;
+  flex-shrink: 0;
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  i {
+    font-size: 1.7rem;
+    color: var(--white);
+    position: relative;
+    z-index: 2;
+    transition: transform .3s ease;
+    filter: drop-shadow(0 2px 6px rgba(0, 0, 0, .2));
+  }
+}
+
+// ── Animated shape behind icon ────────────────────────────────
+.counter-one__shape {
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+
+  // alternating green-glass / gold-glass via nth-child
+  background: rgba(255, 255, 255, .14);
+  border: 1px solid rgba(255, 255, 255, .25);
+  backdrop-filter: blur(6px);
+  transition: transform .35s ease, opacity .35s ease;
+  opacity: .85;
+
+  // gold tint on even cards
+  .counter-one__single:nth-child(even) & {
+    background: rgba(173, 119, 51, .22);
+    border-color: rgba(173, 119, 51, .35);
+  }
+}
+
+// ── Text content ──────────────────────────────────────────────
+.counter-one__content {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.count-text {
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: var(--white);
+  line-height: 1;
+  margin: 0;
+
+  // gold accent on even cards
+  .counter-one__single:nth-child(even) & {
+    color: var(--secondary-back);
+    filter: drop-shadow(0 1px 4px rgba(173, 119, 51, .4));
+  }
+}
+
+.counter-one__text {
+  font-size: .84rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, .72);
+  margin: 0;
+  letter-spacing: .03em;
+  line-height: 1.4;
+}
+
+// ── Responsive ────────────────────────────────────────────────
+@media (max-width: 991px) {
+  .counter-one__single {
+    padding: 22px 28px;
+
+    &:not(:last-child)::after { height: 44px; }
+  }
+  .counter-one__icon { width: 56px; height: 56px; i { font-size: 1.5rem; } }
+  .count-text { font-size: 1.9rem; }
+}
+
+@media (max-width: 767px) {
+  .counter-one__box         { gap: 8px; }
+  .counter-one__single      { flex: 1 1 46%; padding: 18px 16px; }
+  .counter-one__single:not(:last-child)::after { display: none; }
+  .counter-one__icon        { width: 50px; height: 50px; i { font-size: 1.3rem; } }
+  .counter-one__shape       { border-radius: 14px; }
+  .count-text               { font-size: 1.7rem; }
+  .counter-one__text        { font-size: .8rem; }
+
+  .counter-one::after       { width: 140px; height: 140px; opacity: .12; }
+}
+
+@media (max-width: 480px) {
+  .counter-one__single      { flex: 1 1 100%; padding: 16px 20px; }
+}

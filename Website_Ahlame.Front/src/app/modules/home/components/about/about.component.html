@@ -1,0 +1,328 @@
+<main>
+  <!-- ═══ Banner ═══ -->
+  <section class="banner__inner-page bg-image pt-100 pb-100 bg-image"
+    [style.background]="'url(https://templates.g5plus.net/glowing-bootstrap-5/assets/images/hero-slider/hero-slider-26.jpg)'">
+    <div _ngcontent-ng-c1426310983="" data-wow-delay="200ms" data-wow-duration="1500ms" class="shape3 wow slideInRight"><img _ngcontent-ng-c1426310983="" alt="shape" loading="lazy" class="sway__animationX" src="https://templates.g5plus.net/glowing-bootstrap-5/assets/images/background/bg-landing-home-02.png"></div>
+    <div class="container cssanimation fadeInRight">
+      <h2 class="wow fadeInUp banner-title" data-wow-delay="00ms" data-wow-duration="1500ms">
+        {{ "About Us" | translate }}
+      </h2>
+      <div class="breadcrumb-list wow fadeInUp" data-wow-delay="200ms" data-wow-duration="1500ms">
+        <a [routerLink]="['/']">{{ "Home" | translate }}</a>
+        <span><i class="fa-regular fa-angles-right mx-2"></i>{{ "About Us" | translate }}</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ Corporate Overview ═══ -->
+  <section class="about-overview-section pt-80 pb-60">
+    <div class="container">
+      <div class="row g-4 align-items-center">
+
+        <!-- Image -->
+        <div class="col-xl-6 wow fadeInLeft" data-wow-delay="200ms" data-wow-duration="1500ms">
+          <div class="about-overview__image-wrapper">
+            <div class="about-overview__img-accent"></div>
+            <div class="about-overview__main-image">
+              <app-lazy-load-image
+                [imageSrc]="'https://templates.g5plus.net/glowing-bootstrap-5/assets/images/banner/banner-02.jpg'"
+                [defaultImage]="'https://templates.g5plus.net/glowing-bootstrap-5/assets/images/banner/banner-02.jpg'"
+                [alt]="'احلامي للمستحضرات التجميلية'"
+                [loading]="'lazy'"/>
+            </div>
+            <div class="about-overview__badge">
+              <i class="fa-solid fa-award"></i>
+              <span>{{ "Since 2018" | translate }}</span>
+            </div>
+            <div class="about-overview__corner-deco"></div>
+          </div>
+        </div>
+
+        <!-- Content -->
+        <div class="col-xl-6 wow fadeInRight" data-wow-delay="200ms" data-wow-duration="1500ms">
+          <div class="section-header mb-40">
+                        <!-- ═══ Section Header ═══ -->
+    <div class="mgr-header wow fadeInUp" data-wow-delay="00ms" data-wow-duration="1200ms">
+      <span class="mgr-header__eyebrow">
+        <span class="mgr-header__line"></span>
+                               {{ "Beauty Born From Passion" | translate }}
+
+        <span class="mgr-header__line"></span>
+      </span>
+    </div>
+
+          </div>
+          <div class="about-overview__content">
+            <p class="about-overview__text">{{ "ABOUT_OVERVIEW_1" | translate }}</p>
+            <p class="about-overview__text">{{ "ABOUT_OVERVIEW_2" | translate }}</p>
+            <p class="about-overview__text">{{ "ABOUT_OVERVIEW_3" | translate }}</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ Vision & Mission ═══ -->
+  <section class="vision-mission-section pt-60 pb-60">
+    <div class="container">
+      <div class="row g-4">
+
+        <!-- Vision -->
+        <div class="col-lg-6 wow fadeInLeft" data-wow-delay="100ms" data-wow-duration="1500ms">
+          <div class="vision-card h-100">
+            <div class="vision-card__header">
+              <div class="vision-card__icon">
+                <i class="fa-solid fa-eye"></i>
+              </div>
+              <h3 class="vision-card__title">{{ "Our Vision" | translate }}</h3>
+            </div>
+            <div class="vision-card__body">
+              <p>{{ "VISION_TEXT_1" | translate }}</p>
+              <p>{{ "VISION_TEXT_2" | translate }}</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mission -->
+        <div class="col-lg-6 wow fadeInRight" data-wow-delay="200ms" data-wow-duration="1500ms">
+          <div class="vision-card vision-card--gold h-100">
+            <div class="vision-card__header">
+              <div class="vision-card__icon">
+                <i class="fa-solid fa-bullseye"></i>
+              </div>
+              <h3 class="vision-card__title">{{ "Our Mission" | translate }}</h3>
+            </div>
+            <div class="vision-card__body">
+              <p>{{ "MISSION_TEXT_1" | translate }}</p>
+              <p>{{ "MISSION_TEXT_2" | translate }}</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ Core Values ═══ -->
+  <section class="core-values-section pt-60 pb-60">
+    <div class="container">
+      <div class="section-header text-center mb-60">
+                <!-- ═══ Section Header ═══ -->
+    <div class="mgr-header wow fadeInUp" data-wow-delay="00ms" data-wow-duration="1200ms">
+      <span class="mgr-header__eyebrow">
+        <span class="mgr-header__line"></span>
+                                     {{ "OUR FOUNDATION" | translate }}
+
+
+        <span class="mgr-header__line"></span>
+      </span>
+    </div>
+        <p class="section-description wow fadeInUp" data-wow-delay="250ms">
+          {{ "CORE_VALUES_DESC" | translate }}
+        </p>
+
+        
+
+      </div>
+
+      <div class="row g-4">
+
+        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="100ms" data-wow-duration="1500ms">
+          <div class="core-value-card">
+            <div class="core-value-card__icon">
+              <i class="fa-solid fa-flask-vial"></i>
+            </div>
+            <h4 class="core-value-card__title">{{ "Innovation" | translate }}</h4>
+            <p class="core-value-card__text">{{ "INNOVATION_TEXT" | translate }}</p>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="200ms" data-wow-duration="1500ms">
+          <div class="core-value-card core-value-card--gold">
+            <div class="core-value-card__icon">
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <h4 class="core-value-card__title">{{ "Excellence" | translate }}</h4>
+            <p class="core-value-card__text">{{ "EXCELLENCE_TEXT" | translate }}</p>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="300ms" data-wow-duration="1500ms">
+          <div class="core-value-card">
+            <div class="core-value-card__icon">
+              <i class="fa-solid fa-leaf"></i>
+            </div>
+            <h4 class="core-value-card__title">{{ "Integrity" | translate }}</h4>
+            <p class="core-value-card__text">{{ "INTEGRITY_TEXT" | translate }}</p>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="100ms" data-wow-duration="1500ms">
+          <div class="core-value-card core-value-card--gold">
+            <div class="core-value-card__icon">
+              <i class="fa-solid fa-handshake"></i>
+            </div>
+            <h4 class="core-value-card__title">{{ "Collaboration" | translate }}</h4>
+            <p class="core-value-card__text">{{ "COLLABORATION_TEXT" | translate }}</p>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="200ms" data-wow-duration="1500ms">
+          <div class="core-value-card">
+            <div class="core-value-card__icon">
+              <i class="fa-solid fa-heart"></i>
+            </div>
+            <h4 class="core-value-card__title">{{ "Commitment" | translate }}</h4>
+            <p class="core-value-card__text">{{ "COMMITMENT_TEXT" | translate }}</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ Company Highlights ═══ -->
+  <section class="company-highlights-section pt-60 pb-60">
+    <div class="container">
+      <div class="section-header text-center mb-60">
+            <div class="mgr-header wow fadeInUp" data-wow-delay="00ms" data-wow-duration="1200ms">
+      <span class="mgr-header__eyebrow" style="    color: white;">
+        <span class="mgr-header__line"></span>
+{{ "Company Highlights" | translate }}
+
+
+
+        <span class="mgr-header__line"></span>
+      </span>
+    </div>
+        <p class="section-description wow fadeInUp" data-wow-delay="250ms">
+          {{ "HIGHLIGHTS_DESC" | translate }}
+        </p>
+
+    
+      </div>
+
+      <div class="row g-4">
+
+        <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="100ms" data-wow-duration="1500ms">
+          <div class="highlight-card">
+            <div class="highlight-card__icon">
+              <i class="fa-solid fa-store"></i>
+            </div>
+            <div class="highlight-card__content">
+              <h3 class="highlight-card__number">22+</h3>
+              <p class="highlight-card__label">{{ "Businesses Serviced" | translate }}</p>
+              <p class="highlight-card__description">{{ "HIGHLIGHT_1_DESC" | translate }}</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="200ms" data-wow-duration="1500ms">
+          <div class="highlight-card">
+            <div class="highlight-card__icon">
+              <i class="fa-solid fa-handshake"></i>
+            </div>
+            <div class="highlight-card__content">
+              <h3 class="highlight-card__number">17+</h3>
+              <p class="highlight-card__label">{{ "Investors & Partners" | translate }}</p>
+              <p class="highlight-card__description">{{ "HIGHLIGHT_2_DESC" | translate }}</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="300ms" data-wow-duration="1500ms">
+          <div class="highlight-card">
+            <div class="highlight-card__icon">
+              <i class="fa-solid fa-location-dot"></i>
+            </div>
+            <div class="highlight-card__content">
+              <h3 class="highlight-card__number">7</h3>
+              <p class="highlight-card__label">{{ "Strategic Local Partnerships" | translate }}</p>
+              <p class="highlight-card__description">{{ "HIGHLIGHT_3_DESC" | translate }}</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="400ms" data-wow-duration="1500ms">
+          <div class="highlight-card">
+            <div class="highlight-card__icon">
+              <i class="fa-solid fa-earth-americas"></i>
+            </div>
+            <div class="highlight-card__content">
+              <h3 class="highlight-card__number">3</h3>
+              <p class="highlight-card__label">{{ "Strategic International Partnerships" | translate }}</p>
+              <p class="highlight-card__description">{{ "HIGHLIGHT_4_DESC" | translate }}</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ Leadership Messages ═══ -->
+  <section class="leadership-messages-section pt-60 pb-120">
+    <div class="container">
+      <div class="section-header text-center mb-60">
+         <div class="mgr-header wow fadeInUp" data-wow-delay="00ms" data-wow-duration="1200ms">
+      <span class="mgr-header__eyebrow" >
+        <span class="mgr-header__line"></span>
+          {{ "Messages from Leadership" | translate }}
+
+        <span class="mgr-header__line"></span>
+      </span>
+    </div>
+      </div>
+      
+
+      <div class="row g-4">
+
+        <!-- Founder Message -->
+        <div class="col-lg-6 wow fadeInLeft" data-wow-delay="200ms" data-wow-duration="1500ms">
+          <div class="leadership-card">
+            <div class="leadership-card__header">
+              <div class="leadership-card__icon">
+                <i class="fa-solid fa-spa"></i>
+              </div>
+              <div>
+                <h4 class="leadership-card__title">{{ "Message from the Founder" | translate }}</h4>
+                <span class="leadership-card__role">{{ "Founder & Creative Director" | translate }}</span>
+              </div>
+            </div>
+            <div class="leadership-card__body">
+              <p class="leadership-card__lead">{{ "FOUNDER_MSG_LEAD" | translate }}</p>
+              <p>{{ "FOUNDER_MSG_1" | translate }}</p>
+              <p>{{ "FOUNDER_MSG_2" | translate }}</p>
+              <p>{{ "FOUNDER_MSG_3" | translate }}</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- CEO Message -->
+        <div class="col-lg-6 wow fadeInRight" data-wow-delay="200ms" data-wow-duration="1500ms">
+          <div class="leadership-card leadership-card--gold">
+            <div class="leadership-card__header">
+              <div class="leadership-card__icon">
+                <i class="fa-solid fa-wand-sparkles"></i>
+              </div>
+              <div>
+                <h4 class="leadership-card__title">{{ "Message from the CEO" | translate }}</h4>
+                <span class="leadership-card__role">{{ "Chief Executive Officer" | translate }}</span>
+              </div>
+            </div>
+            <div class="leadership-card__body">
+              <p class="leadership-card__lead">{{ "CEO_MSG_LEAD" | translate }}</p>
+              <p>{{ "CEO_MSG_1" | translate }}</p>
+              <p>{{ "CEO_MSG_2" | translate }}</p>
+              <p>{{ "CEO_MSG_3" | translate }}</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+<app-footer></app-footer>

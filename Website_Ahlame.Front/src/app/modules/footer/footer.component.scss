@@ -1,0 +1,288 @@
+// ─── Tokens (match site theme) ───────────────────────────────────────────────
+$green:        #4e7661;
+$green-light:  #7aaa91;
+$green-pale:   #e8f2ed;
+$gold:         #ad7733;
+$gold-light:   #d4a05a;
+
+$footer-bg:    #0f1e18;        // أخضر غامق جداً — خلفية الفوتر
+$footer-mid:   #162b20;        // طبقة ثانية أفتح قليلاً
+$footer-line:  rgba(#4e7661, 0.25);  // خطوط فاصلة
+
+$text-light:   #c8ddd4;        // نص فاتح على الخلفية الداكنة
+$text-muted:   #7a9e8a;        // نص ثانوي
+
+// ─── Footer Base ──────────────────────────────────────────────────────────────
+.footer-area {
+  background-color: $footer-bg;
+  position: relative;
+  overflow: hidden;
+
+  // ── Ambient glow top-left ──
+  &::before {
+    content: '';
+    position: absolute;
+    top: -80px;
+    left: -80px;
+    width: 420px;
+    height: 420px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba($green, .12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  // ── Gold glow bottom-right ──
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -60px;
+    right: -60px;
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba($gold, .10) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  p {
+    color: white;
+    font-size: 0.9rem;
+    line-height: 1.75;
+  }
+
+  a {
+    color: $text-muted;
+    text-decoration: none;
+    transition: color .2s ease;
+
+    &:hover { color: $gold-light; }
+  }
+}
+
+// ─── Shapes (opacity reduced to match green theme) ────────────────────────────
+.footer__shape-regular-left,
+.footer__shape-solid-right {
+  opacity: 0.06;
+  filter: hue-rotate(120deg) saturate(0.5);  // shift pink shapes → greenish
+}
+
+.footer__shadow-shape { opacity: 0.07; }
+
+// ─── Wrapper ──────────────────────────────────────────────────────────────────
+.footer__wrp {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px 48px;
+  align-items: unset;          // keep original override
+  position: relative;
+  z-index: 1;
+  border-bottom: 1px solid $footer-line;
+}
+
+// ─── Footer Item ──────────────────────────────────────────────────────────────
+.footer__item {
+  flex: 1 1 200px;
+
+  // ── Title ──
+  .footer-title {
+    font-size: 21px;           // as specified
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 12px;
+
+    // Underline accent
+    // &::after {
+    //   content: '';
+    //   position: absolute;
+    //   bottom: 0;
+    //   left: 0;
+    //   width: 36px;
+    //   height: 2px;
+    //   border-radius: 2px;
+    //   background: linear-gradient(90deg, $gold, $green);
+    // }
+  }
+
+  // ── Nav lists ──
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    li a {
+      color:white;
+      font-size: 0.88rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: color .2s ease, gap .2s ease;
+
+      i {
+        font-size: 0.72rem;
+        color: $gold;
+        transition: color .2s ease;
+      }
+
+      &:hover {
+        color: $green-light;
+        gap: 10px;
+
+        i { color: $green-light; }
+      }
+    }
+  }
+}
+
+// ─── Logo ─────────────────────────────────────────────────────────────────────
+.footer__item .logo {
+  display: inline-block;
+  margin-bottom: 20px;         // override .mb-30 if needed
+}
+
+// ─── Social Icons ─────────────────────────────────────────────────────────────
+.social-icon {
+  display: flex;
+  gap: 10px;
+  margin-top: 22px;
+  flex-wrap: wrap;
+
+  a {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 1px solid $footer-line;
+    background: rgb(78 118 97);
+    color: white;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    transition: background .25s ease, color .25s ease, border-color .25s ease, transform .25s ease;
+
+    &:hover {
+      background: $green;
+      color: #fff;
+      border-color: $green;
+      transform: translateY(-3px);
+    }
+  }
+}
+
+// ─── Contact list ─────────────────────────────────────────────────────────────
+.footer-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+
+    > i {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1px solid rgba($green, .25);
+    background: rgb(78 118 97);
+    color: white;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+      transition: background .2s ease, color .2s ease;
+    }
+
+    &:hover > i {
+      background: $green;
+      color: #fff;
+    }
+  }
+
+  .info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+
+    h5 {
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: $gold-light;
+      margin: 0;
+    }
+
+    p, a {
+      font-size: 0.85rem;
+      color: $text-muted;
+      margin: 0;
+
+      &:hover { color: $green-light; }
+    }
+  }
+}
+
+// ─── Copyright bar ────────────────────────────────────────────────────────────
+.footer__copyright {
+  background: rgba(#000, .25);
+  padding: 18px 0;
+  position: relative;
+  z-index: 1;
+
+  p {
+    color: $text-muted;
+    font-size: 0.82rem;
+    margin: 0;
+
+    a {
+      color: $gold-light;
+      font-weight: 600;
+
+      &:hover { color: $green-light; }
+    }
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li a {
+      color: $text-muted;
+      font-size: 0.82rem;
+      transition: color .2s ease;
+
+      &:hover { color: $gold-light; }
+    }
+  }
+}
+
+// ─── Responsive ───────────────────────────────────────────────────────────────
+@media (max-width: 991.98px) {
+  .footer__wrp { gap: 32px; }
+
+  .footer__item {
+    flex: 1 1 160px;
+
+    .footer-title { font-size: 18px; }
+  }
+}
+
+@media (max-width: 575.98px) {
+  .footer__wrp  { gap: 28px; }
+  .footer__item { flex: 1 1 100%; }
+
+  .footer__copyright .d-flex { flex-direction: column; gap: 10px; text-align: center; }
+  .footer__copyright ul      { justify-content: center; }
+}

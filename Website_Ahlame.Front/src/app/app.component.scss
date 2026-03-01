@@ -1,0 +1,35 @@
+/* scroll to top */
+.scroll-to-top {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  background: #a79132;
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  z-index: 99;
+  text-align: center;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+  display: none;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.scroll-to-top i {
+  color: white;
+  font-size: 18px;
+  line-height: 50px;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+  position: relative;
+  display: inline-block;
+}
+
+.scroll-to-top:hover {
+  background-color: #123821;
+}
+
+.scroll-to-top:hover i {
+  color: #fff;
+}

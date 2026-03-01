@@ -1,0 +1,4 @@
+<div class="badge" [class.yellow]="isYellow" [class.red]="!isYellow" [class.skyBlue]="isSkyBlue">
+  <p *ngIf="!isSkyBlue">{{(isYellow ? 'Courses' : 'lesson') | translate }}</p>
+  <p *ngIf="isSkyBlue">{{'Bundle' | translate }}</p>
+</div>

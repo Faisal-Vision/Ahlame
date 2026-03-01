@@ -1,0 +1,159 @@
+<main>
+  <!-- Banner -->
+  <section
+    class="banner__inner-page bg-image pt-100 pb-100 bg-image"
+    [style.background]="'url(https://templates.g5plus.net/glowing-bootstrap-5/assets/images/hero-slider/hero-slider-26.jpg)'"
+  >
+    <div class="shape3 wow slideInRight" data-wow-delay="200ms" data-wow-duration="1500ms">
+      <img class="sway__animationX" [src]="'https://templates.g5plus.net/glowing-bootstrap-5/assets/images/background/bg-landing-home-02.png'" alt="shape" loading="lazy"/>
+    </div>
+    <div class="container cssanimation fadeInRight">
+        <h2 class="wow fadeInUp" data-wow-delay="00ms" data-wow-duration="1500ms"> {{"OurProducts" | translate}} </h2>
+
+      <div class="breadcrumb-list wow fadeInUp" data-wow-delay="200ms" data-wow-duration="1500ms">
+        <a [routerLink]="['/']">{{ "Home" | translate }}</a>
+        <span><i class="fa-regular fa-angles-right mx-2"></i></span>
+        <a [routerLink]="['']">  {{ 'Product Details' | translate }}</a>
+       
+      </div>
+    </div>
+  </section>
+
+  <!-- Detail area -->
+  <section class="product-detail pt-100 pb-100" *ngIf="project; else notFound">
+    <div class="container">
+
+      <!-- Top: image + info -->
+      <div class="row g-5 align-items-center mb-80">
+
+        <!-- Image gallery -->
+        <div class="col-lg-6 wow fadeInLeft" data-wow-delay="00ms" data-wow-duration="1200ms">
+          <div class="pd__main-image">
+            <img [src]="activeImage" [alt]="project.title | translate" loading="lazy" />
+
+            <!-- Badge -->
+            <div class="pd__badge" [ngClass]="'badge--' + project.categoryType">
+              <i class="fa-regular" [ngClass]="project.categoryIcon"></i>
+              {{ project.category | translate }}
+            </div>
+          </div>
+
+          <!-- Thumbnails -->
+          <div class="pd__thumbs" *ngIf="project.images?.length">
+            <button
+              class="pd__thumb"
+              *ngFor="let img of project.images"
+              [class.active]="activeImage === img"
+              (click)="activeImage = img"
+            >
+              <img [src]="img" [alt]="project.title | translate" loading="lazy" />
+            </button>
+          </div>
+        </div>
+
+        <!-- Info panel -->
+        <div class="col-lg-6 wow fadeInRight" data-wow-delay="100ms" data-wow-duration="1200ms">
+          <div class="pd__info">
+
+            <!-- Category tag -->
+            <span class="pd__category-tag">{{ project.category | translate }}</span>
+
+            <h2 class="pd__title">{{ project.title | translate }}</h2>
+
+            <p class="pd__desc">{{ project.briefDescription | translate }}</p>
+
+            <!-- Price -->
+            <div class="pd__price-row" *ngIf="project.price">
+              <span class="pd__price-label">{{ "Price" | translate }}</span>
+              <span class="pd__price">{{ project.price }}</span>
+            </div>
+
+            <!-- Notes / Ingredients pills -->
+            <div class="pd__notes-section" *ngIf="project.notes?.length">
+              <h6 class="pd__notes-heading">
+                <i class="fa-regular fa-sparkles me-2"></i>
+                {{ (project.categoryType === 'perfume' ? 'Scent Notes' : 'Key Ingredients') | translate }}
+              </h6>
+              <div class="pd__pills">
+                <span class="pd__pill" *ngFor="let note of project.notes">
+                  {{ note | translate }}
+                </span>
+              </div>
+            </div>
+
+            <!-- Meta grid -->
+            <div class="pd__meta-grid">
+              <div class="pd__meta-item" *ngIf="project.client">
+                <i class="fa-regular fa-user"></i>
+                <span>{{ project.client }}</span>
+              </div>
+              <div class="pd__meta-item" *ngIf="project.location">
+                <i class="fa-regular fa-location-dot"></i>
+                <span>{{ project.location }}</span>
+              </div>
+              <div class="pd__meta-item" *ngIf="project.completedDate">
+                <i class="fa-regular fa-calendar"></i>
+                <span>{{ project.completedDate }}</span>
+              </div>
+            </div>
+
+            <!-- CTAs -->
+            <div class="pd__actions">
+              <button class="pd__wishlist-btn" (click)="toggleWishlist()">
+                <i class="fa-regular" [ngClass]="wishlisted ? 'fa-heart-pulse' : 'fa-heart'"></i>
+                {{ "Add to Wishlist" | translate }}
+              </button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- Overview section -->
+      <div class="row" *ngIf="project.overview?.projectOverview">
+        <div class="col-12">
+          <div class="pd__overview wow fadeInUp" data-wow-delay="00ms" data-wow-duration="1200ms">
+            <h4 class="pd__section-title">
+              <span class="pd__section-line"></span>
+              {{ "Product Overview" | translate }}
+            </h4>
+            <p>{{ project.overview.projectOverview | translate }}</p>
+
+            <ul class="pd__challenges" *ngIf="project.overview.projectChallenges?.length">
+              <li *ngFor="let item of project.overview.projectChallenges">
+                <i class="fa-regular fa-circle-check"></i>
+                {{ item | translate }}
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    
+
+      <!-- Back link -->
+      <div class="text-center mt-60 wow fadeInUp">
+        <a [routerLink]="['/']" class="pd__back-link">
+          <i class="fa-regular fa-arrow-left me-2"></i>
+          {{ "Back to Portfolio" | translate }}
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Not found fallback -->
+  <ng-template #notFound>
+    <section class="pt-120 pb-120 text-center">
+      <div class="container">
+        <i class="fa-regular fa-circle-xmark fa-3x mb-3" style="color:#e8637a"></i>
+        <h4>Product not found</h4>
+        <a [routerLink]="['/case']" class="btn-one mt-3">
+          {{ "Back to Portfolio" | translate }}
+        </a>
+      </div>
+    </section>
+  </ng-template>
+
+</main>
+<app-footer></app-footer>

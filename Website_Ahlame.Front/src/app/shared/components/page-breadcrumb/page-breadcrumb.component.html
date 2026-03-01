@@ -1,0 +1,20 @@
+<div class="page-breadcrumb">
+  <app-img src="assets/images/icons/breadcrumb-icon.webp" alt="background" class="background"></app-img>
+  <div class="container">
+    <div class="d-flex align-items-center justify-content-between">
+      <div class="content">
+        <div class="d-flex align-items-center">
+          <h1>{{title | translate}}</h1>
+          <div *ngIf="title=='Live'" class="life-soon">
+            <div class="dot"></div>
+            <app-img *ngIf="lang!='en'" src="assets/images/icons/soon-life-ar.svg"></app-img>
+            <app-img *ngIf="lang=='en'" src="assets/images/icons/soon-life-en.svg"></app-img>
+          </div>
+        </div>
+        <h4>{{descrption}}</h4>
+      </div>
+      <app-img *ngIf="icon" [src]="icon" alt="icon" class="breadcrumb-icon" setRtl></app-img>
+    </div>
+
+  </div>
+</div>

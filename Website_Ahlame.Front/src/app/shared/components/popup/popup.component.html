@@ -1,0 +1,16 @@
+<div class="modal-header" >
+  {{ data.header }}
+</div>
+<!-- <mat-dialog-content>
+  <p>{{ data.message }}</p>
+</mat-dialog-content> -->
+
+<ng-container #popupContent  >
+ 
+</ng-container>
+
+<mat-dialog-actions >
+  <!-- <app-button *ngIf="data.submitButtonText"  class="btn btn-danger" (click)="handleSubmit()">{{ data.submitButtonText | translate}}</app-button> -->
+  <button *ngIf="data.dismissButtonText"  (click)="handleDismiss()" class="btn btn-danger">{{ data.dismissButtonText | translate }} <i class="fa-regular fa-circle-xmark"></i> </button>
+  <button *ngIf="data.submitButtonText"  (click)="handleSubmit()"class="btn btn-save">{{ data.submitButtonText | translate}} <i class="fa-solid fa-check-double"></i></button>
+</mat-dialog-actions>

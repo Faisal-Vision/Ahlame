@@ -1,0 +1,20 @@
+@import "base/variables";
+@import "basics/mixin";
+@import "_abstracts/_mixins";
+@import "_abstracts/_variables";
+
+// Typography styles***
+@import "_base/_typography";
+
+// Component styles ***
+@import "_components/_buttons";
+@import "_components/_progress";
+
+// Layout styles ***
+@import "_layout/_header";
+@import "_layout/_banner";
+@import "_layout/_section";
+@import "_layout/_footer";
+
+// Animation styles***
+@import "_base/_animation";

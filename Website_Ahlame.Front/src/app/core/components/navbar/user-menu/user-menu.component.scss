@@ -1,0 +1,27 @@
+@import "style.scss";
+.user-menu {
+  .image-round {
+    width: 42px;
+    border-radius: 50%;
+    overflow: hidden;
+    app-img{
+      filter: unset;
+    }
+  }
+  .info{
+    app-img{
+      filter: unset;
+    }
+  }
+  button {
+    display: flex;
+    flex-direction: row-reverse;
+
+    mat-icon {
+      margin-inline-start: 8px;
+      margin-inline-end: 0px;
+      color: #055160 !important;
+    }
+  }
+}
+

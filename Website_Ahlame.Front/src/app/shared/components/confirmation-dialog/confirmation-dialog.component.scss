@@ -1,0 +1,20 @@
+.confirmation{
+  padding: 50px 50px 20px 50px;
+  border-radius: 30px;
+  color: #000 !important;
+  .icon{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: #fee2e2;
+    margin-inline-end: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    mat-icon{
+      color: #dc2626;
+    }
+  }
+  h3{font-size: 1.125rem;margin-bottom: 5px;color: #000 !important;}
+  p{opacity: 0.7;color: #000 !important;}
+}

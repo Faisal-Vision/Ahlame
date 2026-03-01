@@ -1,0 +1,57 @@
+.slider {
+  swiper-container {
+    padding-block: 1.5rem;
+  }
+
+  swiper-slide {
+    &.swiper-slide-active {
+      z-index: 99;
+
+      .course-card {
+        transform-origin: left;
+      }
+    }
+
+    &.swiper-slide-active+swiper-slide+swiper-slide+swiper-slide+swiper-slide+swiper-slide {
+      z-index: 99;
+
+      .course-card {
+        transform-origin: right;
+      }
+    }
+  }
+}
+
+
+.fourCard {
+  swiper-container {
+    padding-block: 1.5rem;
+  }
+
+  swiper-slide {
+    &:hover {
+      z-index: 10;
+    }
+
+    &.swiper-slide-active {
+      z-index: 9;
+
+      .card-container {
+        transform-origin: left;
+      }
+    }
+
+    &.swiper-slide-active+swiper-slide+swiper-slide+swiper-slide {
+      z-index: 9;
+
+      .card-container {
+        transform-origin: right;
+      }
+    }
+  }
+}
+
+
+
+html[dir=rtl] .slider swiper-slide.swiper-slide-active .course-card{transform-origin: right;}
+html[dir=rtl] .slider swiper-slide.swiper-slide-active + swiper-slide + swiper-slide + swiper-slide + swiper-slide + swiper-slide .course-card{transform-origin: left;}

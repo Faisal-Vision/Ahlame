@@ -1,0 +1,428 @@
+// ═══════════════════════════════════════════════════════════════
+//  manager-area.component.scss
+//  Luxury Beauty Aesthetic — Rose Gold + Blush + Deep Plum
+// ═══════════════════════════════════════════════════════════════
+
+// ── Tokens ────────────────────────────────────────────────────
+$gold:        #c9a96e;
+$gold-light:  #e8d5a3;
+$gold-dark:   #9a7a45;
+$rose:        #e8637a;
+$rose-light:  #f4a7b5;
+$rose-pale:   #fdf0f2;
+$blush:       #f9e8ec;
+$plum:        #4a1942;
+$plum-light:  #7b3d6e;
+$cream:       #fdf8f4;
+$text-dark:   #2d1a2e;
+$text-mid:    #6b4c63;
+$text-light:  #a07890;
+
+// ── Fonts ─────────────────────────────────────────────────────
+
+// ═══════════════════════════════════════════════════════════════
+//  Section wrapper
+// ═══════════════════════════════════════════════════════════════
+.manager-section {
+  position: relative;
+  background: linear-gradient(160deg, $cream 0%, #fff 40%, $blush 100%);
+  overflow: hidden;
+  
+}
+
+// ── Background blobs ──────────────────────────────────────────
+.mgr-bg-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  opacity: 0.35;
+
+  &--1 {
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, $rose-light, transparent 70%);
+    top: -120px; left: -100px;
+  }
+  &--2 {
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, $gold-light, transparent 70%);
+    bottom: -80px; right: -80px;
+  }
+}
+
+// ── Floating petals ───────────────────────────────────────────
+.mgr-petals { position: absolute; inset: 0; pointer-events: none; }
+
+.petal {
+  position: absolute;
+  color: $rose-light;
+  opacity: 0.4;
+  animation: floatPetal 8s ease-in-out infinite;
+  font-size: 1.4rem;
+
+  &--1 { top: 8%;  left: 5%;  animation-delay: 0s;   color: $gold-light; }
+  &--2 { top: 20%; right: 8%; animation-delay: 1.5s; color: $rose-light; }
+  &--3 { top: 55%; left: 3%;  animation-delay: 3s;   color: $gold; }
+  &--4 { bottom: 15%; right: 5%; animation-delay: 2s; color: $rose-light; }
+  &--5 { bottom: 30%; left: 12%; animation-delay: 4s; color: $gold-light; }
+}
+
+@keyframes floatPetal {
+  0%, 100% { transform: translateY(0) rotate(0deg);    opacity: 0.4; }
+  50%       { transform: translateY(-18px) rotate(20deg); opacity: 0.7; }
+}
+
+// ═══════════════════════════════════════════════════════════════
+//  Section header
+// ═══════════════════════════════════════════════════════════════
+.mgr-header {
+  text-align: center;
+  margin-bottom: 70px;
+
+  &__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: $rose;
+    margin-bottom: 14px;
+  }
+
+  &__line {
+    display: inline-block;
+    width: 40px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, $rose, transparent);
+  }
+
+  &__title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 300;
+    color: $text-dark;
+    line-height: 1.2;
+
+    em { font-style: italic; color: $rose; }
+  }
+}
+
+// ═══════════════════════════════════════════════════════════════
+//  Cards
+// ═══════════════════════════════════════════════════════════════
+.mgr-card {
+  position: relative;
+  margin-bottom: 60px;
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba($gold, 0.2);
+  box-shadow:
+    0 4px 24px rgba($plum, 0.07),
+    0 1px 3px rgba($gold, 0.15),
+    inset 0 1px 0 rgba(255,255,255,0.9);
+  overflow: hidden;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow:
+      0 20px 60px rgba($plum, 0.12),
+      0 4px 12px rgba($gold, 0.2),
+      inset 0 1px 0 rgba(255,255,255,0.9);
+  }
+
+  // Top decorative border
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, $gold, $gold-light, $gold, transparent);
+    border-radius: 28px 28px 0 0;
+  }
+
+  // Watermark pattern
+  &::after {
+    content: '✿';
+    position: absolute;
+    bottom: -20px;
+    right: -10px;
+    font-size: 8rem;
+    color: rgba($rose-light, 0.12);
+    pointer-events: none;
+    line-height: 1;
+  }
+
+  &--right::after { right: auto; left: -10px; }
+}
+
+// ── Ribbon ────────────────────────────────────────────────────
+.mgr-card__ribbon {
+  position: absolute;
+  top: 28px;
+  left: -2px;
+  padding: 6px 20px 6px 16px;
+  background: linear-gradient(90deg, $gold-dark, $gold);
+  color: #fff;
+  
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  border-radius: 0 20px 20px 0;
+  box-shadow: 2px 2px 8px rgba($gold-dark, 0.3);
+  z-index: 2;
+
+  &--rose {
+    background: linear-gradient(90deg, darken($rose, 10%), $rose);
+    box-shadow: 2px 2px 8px rgba($rose, 0.3);
+  }
+}
+
+// ── Inner layout ──────────────────────────────────────────────
+.mgr-card__inner {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 50px;
+  align-items: center;
+  padding: 50px 50px 50px 40px;
+
+  &--reverse {
+    grid-template-columns: 1fr 340px;
+
+    .mgr-card__content { order: 1; }
+    .mgr-card__portrait-wrap { order: 2; }
+  }
+
+  @media (max-width: 991px) {
+    grid-template-columns: 1fr;
+    padding: 50px 30px 40px;
+
+    &--reverse .mgr-card__content,
+    &--reverse .mgr-card__portrait-wrap { order: unset; }
+  }
+}
+
+// ── Portrait ──────────────────────────────────────────────────
+.mgr-card__portrait-wrap {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+}
+
+.mgr-card__portrait-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba($gold, 0.3);
+  animation: pulseRing 4s ease-in-out infinite;
+
+  width: 280px; height: 280px;
+
+  &--2 {
+    width: 320px; height: 320px;
+    border-color: rgba($gold, 0.15);
+    animation-delay: 1s;
+  }
+
+  &--rose   { border-color: rgba($rose, 0.3); }
+  &--rose2  { border-color: rgba($rose, 0.15); }
+}
+
+@keyframes pulseRing {
+  0%, 100% { transform: scale(1);    opacity: 0.6; }
+  50%       { transform: scale(1.03); opacity: 1;   }
+}
+
+.mgr-card__portrait {
+  position: relative;
+  width: 230px;
+  height: 280px;
+  border-radius: 120px 120px 80px 80px;
+  overflow: hidden;
+  box-shadow:
+    0 12px 40px rgba($plum, 0.2),
+    0 0 0 4px rgba(255,255,255,0.9),
+    0 0 0 6px rgba($gold, 0.25);
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    transition: transform 0.6s ease;
+  }
+
+  &:hover img { transform: scale(1.05); }
+}
+
+.mgr-card__portrait-overlay {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 70px;
+  background: linear-gradient(transparent, rgba($plum, 0.6));
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 10px;
+
+  &--rose {
+    background: linear-gradient(transparent, rgba($rose, 0.5));
+  }
+}
+
+.mgr-card__icon {
+  color: $gold-light;
+  font-size: 1.4rem;
+}
+
+// ── Floating badge ────────────────────────────────────────────
+.mgr-card__badge {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 14px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba($blush, 0.95));
+  border: 1px solid rgba($gold, 0.3);
+  border-radius: 20px;
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: $gold-dark;
+  letter-spacing: 0.08em;
+  box-shadow: 0 4px 12px rgba($plum, 0.1);
+
+  &--rose {
+    border-color: rgba($rose, 0.3);
+    color: darken($rose, 15%);
+  }
+}
+
+.mgr-card__badge-icon {
+  color: $gold;
+  font-size: 0.65rem;
+}
+
+// ── Content ───────────────────────────────────────────────────
+.mgr-card__content {
+  position: relative;
+  padding: 10px 0;
+}
+
+.mgr-card__quote-mark {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 6rem;
+  line-height: 0.6;
+  color: rgba($gold, 0.25);
+  margin-bottom: 16px;
+  display: block;
+  font-weight: 300;
+
+  &--rose { color: rgba($rose, 0.22); }
+}
+
+.mgr-card__text {
+  
+  font-size: 0.96rem;
+  font-weight: 300;
+  line-height: 1.9;
+  color: $text-mid;
+  margin: 0 0 28px;
+}
+
+// ── Divider ───────────────────────────────────────────────────
+.mgr-card__divider {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 22px;
+
+  span:first-child,
+  span:last-child {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba($gold, 0.4));
+  }
+  span:last-child {
+    background: linear-gradient(90deg, rgba($gold, 0.4), transparent);
+  }
+}
+
+.mgr-card__divider-gem {
+  color: $gold;
+  font-size: 0.6rem;
+  flex: 0;
+
+  &--rose { color: $rose; }
+}
+
+// ── Signature ─────────────────────────────────────────────────
+.mgr-card__signature {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.mgr-card__sig-line {
+  width: 50px;
+  height: 2px;
+  background: linear-gradient(90deg, $gold-dark, $gold-light);
+  border-radius: 2px;
+
+  &--rose {
+    background: linear-gradient(90deg, darken($rose, 10%), $rose-light);
+  }
+}
+
+.mgr-card__role {
+  
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: $gold-dark;
+}
+
+// ── RTL support ───────────────────────────────────────────────
+[dir='rtl'] {
+  .mgr-card__ribbon {
+    left: auto;
+    right: -2px;
+    border-radius: 20px 0 0 20px;
+    padding: 6px 16px 6px 20px;
+  }
+
+  .mgr-card__inner--reverse {
+    .mgr-card__content { order: 2; }
+    .mgr-card__portrait-wrap { order: 1; }
+  }
+
+  .mgr-card__badge { right: auto; left: 10px; }
+
+  .mgr-card__divider {
+    span:first-child { background: linear-gradient(270deg, transparent, rgba($gold, 0.4)); }
+    span:last-child  { background: linear-gradient(270deg, rgba($gold, 0.4), transparent); }
+  }
+}
+
+// ── Responsive ────────────────────────────────────────────────
+@media (max-width: 767px) {
+  .manager-section { padding: 60px 0 80px; }
+
+  .mgr-card__portrait {
+    width: 180px;
+    height: 220px;
+  }
+
+  .mgr-card__portrait-ring {
+    width: 220px; height: 220px;
+    &--2 { width: 255px; height: 255px; }
+  }
+}

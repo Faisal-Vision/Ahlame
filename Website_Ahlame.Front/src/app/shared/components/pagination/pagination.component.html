@@ -1,0 +1,9 @@
+<div class="pagination-container">
+  <div class="pagination">
+    <button class="prev-button" (click)="onPageChange(currentPage - 1)" [disabled]="currentPage === 1">{{'Previos'|translate}}</button>
+
+    <span class="page-number">{{ currentPage }} {{'From'|translate}} {{ totalPages }}</span>
+
+    <button class="next-button" (click)="onPageChange(currentPage + 1)" [disabled]="currentPage === totalPages">{{'Next'|translate}}</button>
+  </div>
+</div>

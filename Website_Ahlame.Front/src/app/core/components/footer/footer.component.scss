@@ -1,0 +1,311 @@
+@import 'style.scss';
+
+// footer {
+//   .container-footer{
+//     background: url('../../../../assets/Img/backmhary.png'), linear-gradient(-20deg, #00b1d2 3%, #055160 59%, #6c54a3);
+//     background-size: contain;
+//     text-decoration: none;
+//     color: white !important;
+//   }
+//   .span-footer{
+//     font-size: 14px;
+//   }
+//   .footer-wrapper {
+//     padding: 0.375rem 0 0.375rem;
+//     margin-top: 1rem;
+//     padding-top: 9px;
+    
+
+
+//     .footer-title {
+//       font-size: 16px;
+//       margin-bottom: 1.625rem;
+//       font-weight: 600;
+//     }
+
+//     .footer-logo {
+//       max-width: 300px;
+//       width: auto;
+
+//       .image {
+//         margin-bottom: 1.175rem;
+//         width: 150px;
+//         height: inherit;
+//       }
+
+//       p {
+//         color: var(--gray);
+//         line-height: 30px;
+//         font-size: 14px;
+//         margin-bottom: 30px;
+//       }
+
+//       span {
+//         color: var(--gray);
+//         font-size: 12px;
+        
+//       }
+//     }
+
+//     .footer-links {
+//       ul {
+//         list-style: none;
+//         padding: 0;
+
+//         li {
+//           margin-bottom: 15px;
+
+//           a {
+//             color: var(--gray);
+//             font-size: 14px;
+
+//             &:hover {
+//               color: var(--black);
+//             }
+//           }
+//         }
+//       }
+//     }
+
+//     .tv-apps-container {
+//       max-width: 610px;
+
+//       .footer-apps {
+//         display: flex;
+//         flex-wrap: wrap;
+//         align-items: flex-start;
+//         padding: 0 1rem;
+
+//         .footer-store {
+//           padding: 0;
+//           padding-inline-end: 6rem;
+//           width: auto;
+
+
+
+//           ul {
+//             display: flex;
+//             padding: 0;
+
+//             li {
+//               margin-right: 10px;
+//             }
+//           }
+//         }
+
+//         .footer-connect {
+//           width: auto;
+
+//           ul {
+//             padding: 0;
+//             display: flex;
+//             list-style-type: none;
+
+//             li {
+//               margin-right: 2rem;
+
+//               a {
+//                 color: var(--gray);
+
+//                 ion-icon {
+//                   color: var(--gray);
+//                 }
+//               }
+//             }
+//           }
+//         }
+
+//         .divider {
+//           width: calc(100% + 2rem);
+//           padding: 1.5rem 0;
+//           position: relative;
+
+//           &::after {
+//             content: '';
+//             margin: inherit;
+//             left: -1rem;
+//             right: -1rem;
+//             bottom: inherit;
+//             width: inherit;
+//             transform: translateY(-50%);
+//             border-top: 1px solid var(--light);
+//             position: absolute;
+//             inset: 50% 0 0;
+//             z-index: 0;
+//             width: 100%;
+//           }
+//         }
+
+//         .footer-tvapps {
+//           ul {
+//             width: 100%;
+//             justify-content: space-between;
+//             align-items: center;
+
+//             li {
+//               display: flex;
+//               align-items: center;
+//               margin-inline-end: 1.2rem;
+
+//               .image {}
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
+// @media (max-width:1200px) {
+//   .container {
+//     padding: 0 15px;
+//   }
+
+//   .footer-wrapper {
+//     max-width: 610px;
+//     justify-content: center;
+//     margin: auto;
+//     text-align: center;
+
+//     .footer-logo {
+//       margin: auto;
+//     }
+
+//     .footer-store {
+//       padding-inline-end: 0;
+//     }
+
+//     .footer-links {
+//       width: 100%;
+//     }
+
+//     .footer-apps {
+//       justify-content: center;
+//     }
+//   }
+// }
+
+
+
+.nav {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  width: 100%;
+  height: 50px;
+  filter: drop-shadow(0 0 5px rgba(31, 31, 31, 0.1));
+  position: fixed;
+  bottom: 0;
+ }
+ 
+ .nav-slot {
+  flex-basis: 15%;
+  text-align: center;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+ }
+ 
+ .nav-link {
+  width: 25px;
+  height: 25px;
+  line-height: 1.5;
+  align-items: center;
+  color: #aab2bd;
+  border-radius: 50rem;
+  padding: 0.5rem 0.5rem;
+  transition: 0.3s all;
+ }
+ 
+ .active {
+  color: #2575fc;
+  transform: scale(1);
+  animation: pulse 3s infinite;
+
+  
+ }
+ .nav-slot a.active + span {
+  color: #528950;
+}
+ .nav-link:hover {
+  transition: 0.3s all;
+  background: rgba(31, 31, 31, 0.1);
+ }
+ 
+ .curve {
+  flex-basis: auto !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff'%3E%3Cpath d='M99,0A36.33,36.33,0,0,0,70,15,25,25,0,0,1,30,15,36.33,36.33,0,0,0,1,0H0V50H100V0Z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-y: center;
+  width: 100px;
+ }
+ 
+ .bg-white {
+  background: white;
+ }
+ 
+ .floating-button {
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  line-height: 3;
+  text-align: center;
+  color: white;
+  border-radius: 50%;
+  bottom: 35px;
+  // background: url('../../../../assets/Img/backmhary.png'),linear-gradient(-9deg, #055160 0%, #598e47 97%);
+  // background: url('../../../../assets/Img/backmhary.png'), linear-gradient(0deg, #7212d8 -61%, #055160 98%, #553bfc, #6c54a3 0%);
+  background-size: contain;
+  box-shadow: 0 10px 6px -6px #777;
+  z-index: 1;
+  transition: 0.3s all;
+ }
+ .nav-slot span{
+  color:#055160;
+  font-size: 13px;
+  margin-top: 20px;
+ }
+
+ .floating-button:hover {
+  bottom: 40px;
+  transition: 0.3s all;
+ }
+ 
+ 
+ .round-top-left {
+  border-top-left-radius: 15px;
+ }
+ 
+ .round-top-right {
+  border-top-right-radius: 15px;
+ }
+ 
+ svg {
+  height: 100%;
+ }
+
+.footerhome{
+  display: flex;
+    justify-content: center;
+    margin-top: 6px;
+}
+
+@media (max-width: 768px) {
+  // .nav {
+  //   flex-direction: column; 
+  // }
+
+  .curve{
+    background: white;
+    width: auto;
+    flex-basis: content !important;
+  }
+  .floating-button {
+    font-size: 17px; 
+  }
+
+  span {
+    font-size: 14px; 
+  }
+}

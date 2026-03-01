@@ -1,0 +1,79 @@
+.user-menu{
+  background-color: var(--white);
+  height: 100vh;
+  overflow: scroll;
+  app-img{
+    width: 70px;
+    height: 70px;
+  }
+  .info-container{
+    margin: 10px;
+    position: relative;
+    padding-bottom: 60px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    .info{
+      border-bottom: 1px solid #aaa;
+      h6{font-size: 1.5rem;}
+      a{color: var(--main);text-decoration: underline;}
+      .profile{
+        margin-block-start: 10ox;
+        app-img{
+          width: 48px;
+          height: 48px;
+        }
+      }
+    }
+  }
+  .navbar-nav {
+    background: var(--white);
+    padding: 10px 20px;
+    background-color: var(--white);
+
+    li {
+      margin: 10px 0;
+      width: 100%;
+
+      a {
+        color: var(--black);
+        margin-inline-start: 0;
+        font-size: 1.5rem;
+        border: 1px solid #e1e1e1;
+        padding: 10px;
+        font-weight: 700;
+        border-radius: 7px;
+        &.active{
+          background-color: var(--main);
+          color: var(--white);
+          &::after{
+            display: none;
+          }
+        }
+      }
+    }
+  }
+  #Login_Id{
+    padding: 10px;
+    border-radius: 7px;
+    color: var(--white);
+    background-color: var(--main);
+    text-align: center;
+    margin: 70px 20px 0 20px;
+    display: block;
+    width: -webkit-fill-available;
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+  .mobCollapseLogo{
+    // position: absolute;
+    // bottom: 25px;
+    // left: 50%;
+    // transform: translateX(-50%);
+    a{width: 120px;display: block;margin: 10px auto;}
+  }
+}
+.w-80{
+  width: 80% !important;
+}

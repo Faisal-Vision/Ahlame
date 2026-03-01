@@ -1,0 +1,15 @@
+a{
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  mat-icon{
+    &.rtl {
+      transform: rotate(180deg);
+    }
+  }
+  span{
+    font-size: 14px;
+    font-weight: 500;
+    margin: 0 10px;
+  }
+}

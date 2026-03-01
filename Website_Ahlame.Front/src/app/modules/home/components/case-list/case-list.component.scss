@@ -1,0 +1,402 @@
+// ─── Tokens (match case-area green theme) ────────────────────────────────────
+$green:        #4e7661;
+$green-light:  #7aaa91;
+$green-pale:   #e8f2ed;
+$green-trans:  rgba(#4e7661, 0.15);
+$gold:         #ad7733;
+$gold-light:   #d4a05a;
+$gold-pale:    #f5e8d0;
+$mauve:        #4e7661; // reuse green as secondary accent
+$border:       #c8ddd4;
+$bg:           #f7faf8;
+$surface:      #ffffff;
+$text:         #1a2e24;
+$text-muted:   #7a9e8a;
+
+// ─── Detail section ───────────────────────────────────────────────────────────
+.product-detail {
+  background-color: $bg;
+  background-image:
+    radial-gradient(ellipse 55% 35% at 5% 10%,  rgba($green-light, .30) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 30% at 95% 90%, rgba($gold-pale,   .50) 0%, transparent 60%);
+  position: relative;
+  overflow: hidden;
+
+  // ── Subtle dot texture ──
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='1' cy='1' r='1' fill='rgba(78,118,97,0.05)'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  // ── Corner decorative image (bottom-right) ──
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: clamp(200px, 28vw, 380px);
+    height: clamp(200px, 28vw, 380px);
+    background-image: url('https://templates.g5plus.net/glowing-bootstrap-5/assets/images/background/bg-landing-home-02.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    opacity: 0.15;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .container { position: relative; z-index: 1; }
+}
+
+// ─── Main image ───────────────────────────────────────────────────────────────
+.pd__main-image {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid $border;
+  box-shadow: 0 8px 40px rgba($green, .12);
+
+  img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    display: block;
+    transition: transform .4s ease;
+  }
+
+  &:hover img { transform: scale(1.03); }
+
+  // ── Top accent line ──
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, $green, $gold);
+    z-index: 2;
+  }
+}
+
+// ─── Badge on image ───────────────────────────────────────────────────────────
+.pd__badge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  backdrop-filter: blur(10px);
+
+  &.badge--perfume  {
+    background: rgba($gold, .15);
+    color: darken($gold, 8%);
+    border: 1px solid rgba($gold, .35);
+  }
+  &.badge--makeup   {
+    background: rgba($green, .15);
+    color: $green;
+    border: 1px solid rgba($green, .35);
+  }
+  &.badge--skincare {
+    background: rgba($green-light, .18);
+    color: darken($green-light, 15%);
+    border: 1px solid rgba($green-light, .35);
+  }
+}
+
+// ─── Thumbnails ───────────────────────────────────────────────────────────────
+.pd__thumbs {
+  display: flex;
+  gap: 10px;
+  margin-top: 14px;
+  flex-wrap: wrap;
+}
+
+.pd__thumb {
+  width: 72px;
+  height: 56px;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 2px solid $border;
+  cursor: pointer;
+  padding: 0;
+  background: none;
+  transition: border-color .2s ease, transform .2s ease;
+
+  img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  &.active,
+  &:hover {
+    border-color: $green;
+    transform: translateY(-3px);
+  }
+}
+
+// ─── Info panel ───────────────────────────────────────────────────────────────
+.pd__info { display: flex; flex-direction: column; gap: 18px; }
+
+.pd__category-tag {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: $green;
+  background: $green-pale;
+  padding: 4px 12px;
+  border-radius: 20px;
+  border: 1px solid rgba($green, .25);
+  width: fit-content;
+}
+
+.pd__title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: $text;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.pd__desc {
+  font-size: 0.95rem;
+  color: $text-muted;
+  line-height: 1.7;
+  margin: 0;
+}
+
+// ─── Price ────────────────────────────────────────────────────────────────────
+.pd__price-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 20px;
+  background: $gold-pale;
+  border-radius: 14px;
+  border: 1px solid rgba($gold, .25);
+}
+
+.pd__price-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: $text-muted;
+}
+
+.pd__price {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: $gold;
+}
+
+// ─── Notes / Ingredients ──────────────────────────────────────────────────────
+.pd__notes-section { display: flex; flex-direction: column; gap: 10px; }
+
+.pd__notes-heading {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: $text-muted;
+  margin: 0;
+}
+
+.pd__pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.pd__pill {
+  background: $surface;
+  border: 1px solid $border;
+  color: $green;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 5px 14px;
+  border-radius: 20px;
+  transition: background .2s ease, color .2s ease, border-color .2s ease;
+
+  &:hover {
+    background: $green;
+    color: #fff;
+    border-color: $green;
+  }
+}
+
+// ─── Meta grid ────────────────────────────────────────────────────────────────
+.pd__meta-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 20px;
+}
+
+.pd__meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  color: $text-muted;
+
+  i { color: $green; font-size: 0.85rem; }
+}
+
+// ─── Actions ──────────────────────────────────────────────────────────────────
+.pd__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  margin-top: 4px;
+}
+
+.pd__wishlist-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 12px 22px;
+  border-radius: 50px;
+  border: 2px solid $border;
+  background: $surface;
+  color: $text-muted;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color .2s ease, color .2s ease, background .2s ease;
+
+  i { font-size: 0.9rem; }
+
+  &:hover {
+    border-color: $green;
+    color: $green;
+    background: $green-pale;
+  }
+}
+
+// ─── Overview section ─────────────────────────────────────────────────────────
+.pd__overview {
+  background: $surface;
+  border: 1px solid $border;
+  border-radius: 20px;
+  padding: 36px 40px;
+  box-shadow: 0 4px 20px rgba($green, .06);
+  position: relative;
+  overflow: hidden;
+
+  // ── Subtle left accent bar ──
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; bottom: 0;
+    width: 4px;
+    background: linear-gradient(to bottom, $green, $gold);
+    border-radius: 4px 0 0 4px;
+  }
+
+  p {
+    color: $text-muted;
+    font-size: 0.95rem;
+    line-height: 1.8;
+    margin: 16px 0 0;
+  }
+}
+
+.pd__section-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: $text;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.pd__section-line {
+  display: inline-block;
+  width: 4px;
+  height: 22px;
+  border-radius: 2px;
+  background: linear-gradient(to bottom, $green, $gold);
+  flex-shrink: 0;
+}
+
+.pd__challenges {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.88rem;
+    color: $text-muted;
+
+    i { color: $green; margin-top: 2px; flex-shrink: 0; }
+  }
+}
+
+// ─── Related ──────────────────────────────────────────────────────────────────
+.pd__related .pd__section-title { margin-bottom: 0; }
+
+// ─── Back link ────────────────────────────────────────────────────────────────
+.pd__back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: $text-muted;
+  text-decoration: none;
+  padding: 10px 20px;
+  border: 1px solid $border;
+  border-radius: 50px;
+  background: $surface;
+  transition: color .2s ease, border-color .2s ease, background .2s ease;
+
+  &:hover {
+    color: $green;
+    border-color: $green;
+    background: $green-pale;
+  }
+}
+
+// ─── Not-found fallback icon ──────────────────────────────────────────────────
+ng-template .fa-circle-xmark { color: $green !important; }
+
+// ─── Spacing utils ────────────────────────────────────────────────────────────
+.mb-80 { margin-bottom: 80px; }
+.mt-80 { margin-top: 80px; }
+.mt-60 { margin-top: 60px; }
+.mb-40 { margin-bottom: 40px; }
+
+// ─── Responsive ───────────────────────────────────────────────────────────────
+@media (max-width: 991.98px) {
+  .pd__title    { font-size: 1.6rem; }
+  .pd__overview { padding: 24px; }
+  .mb-80        { margin-bottom: 50px; }
+
+  .product-detail::after { width: clamp(140px, 22vw, 240px); height: clamp(140px, 22vw, 240px); }
+}
+
+@media (max-width: 575.98px) {
+  .pd__title        { font-size: 1.35rem; }
+  .pd__actions      { flex-direction: column; align-items: stretch; }
+  .pd__wishlist-btn { justify-content: center; }
+
+  .product-detail::after { width: 140px; height: 140px; opacity: 0.10; }
+}

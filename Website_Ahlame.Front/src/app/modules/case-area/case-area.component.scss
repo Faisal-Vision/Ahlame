@@ -1,0 +1,346 @@
+// ─── Design Tokens — Forest & Gold Theme ────────────────────────────────────
+$green:        #4e7661;
+$green-light:  #7aaa91;
+$green-pale:   #e8f2ed;
+$green-trans:  rgba(#4e7661, 0.15);   // #4e766126 ≈ 15% opacity
+$gold:         #ad7733;
+$gold-light:   #d4a05a;
+$gold-pale:    #f5e8d0;
+
+$bg:           #f7faf8;
+$surface:      #ffffff;
+$surface-2:    #eef5f1;
+$border:       #c8ddd4;
+
+$text:         #1a2e24;
+$text-mid:     #3d5c4a;
+$text-muted:   #7a9e8a;
+
+// ─── Section ─────────────────────────────────────────────────────────────────
+.case-area {
+  background-color: $bg;
+  background-image:
+    radial-gradient(ellipse 55% 40% at 10% 0%,  rgba($green-light, .35) 0%, transparent 65%),
+    radial-gradient(ellipse 45% 35% at 90% 100%, rgba($gold-pale,   .55) 0%, transparent 65%);
+  position: relative;
+  overflow: hidden;
+
+  // ── Dot-grid texture ──
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='1' cy='1' r='1' fill='rgba(78,118,97,0.05)'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  // ── Corner decorative image (bottom-right) ──
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: clamp(220px, 30vw, 420px);
+    height: clamp(220px, 30vw, 420px);
+    background-image: url('https://templates.g5plus.net/glowing-bootstrap-5/assets/images/background/bg-landing-home-02.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    opacity: 0.18;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .section-header h5 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.78rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: $green;
+    font-weight: 700;
+
+    img { width: 20px; height: 20px; object-fit: contain; }
+  }
+
+  .section-title { color: $text; }
+
+  // ── Section eyebrow header style (mgr-header) ──
+  .mgr-header {
+    text-align: center;
+    margin-bottom: 8px;
+  }
+
+  .mgr-header__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.78rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: $green;
+    font-weight: 700;
+  }
+
+  .mgr-header__line {
+    display: block;
+    width: 36px;
+    height: 2px;
+    background: linear-gradient(90deg, $gold, $green);
+    border-radius: 2px;
+    opacity: 0.7;
+  }
+
+  .btn-one {
+    background: linear-gradient(135deg, $green, darken($green, 10%));
+    color: #fff;
+    border: none;
+
+    &:hover { opacity: .88; }
+  }
+
+  // Make sure content sits above pseudo-elements
+  .container { position: relative; z-index: 1; }
+}
+
+// ─── Grid ─────────────────────────────────────────────────────────────────────
+.case-grid { margin-top: 16px; }
+
+// ─── Card ─────────────────────────────────────────────────────────────────────
+.case-card {
+  background: $surface;
+  border-radius: 22px;
+  border: 1px solid $border;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+  transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease;
+  box-shadow: 0 4px 20px rgba($green, .08);
+
+  &:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 16px 48px rgba($green, .2), 0 0 0 1px rgba($green, .3);
+    border-color: rgba($green, .4);
+
+    .case-card__image img { transform: scale(1.06); }
+    .case-card__overlay   { opacity: 1; transform: translateY(0); }
+    .case-card__notes     { opacity: 1; transform: translateY(0); }
+  }
+
+  // ── Top accent line per category ──
+  &[data-category="perfume"]  { --accent: #{$gold};         }
+  &[data-category="makeup"]   { --accent: #{$green};        }
+  &[data-category="skincare"] { --accent: #{$green-light};  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent, #{$green}), transparent);
+    z-index: 2;
+  }
+}
+
+// ─── Badge ────────────────────────────────────────────────────────────────────
+.case-card__badge {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.67rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  backdrop-filter: blur(10px);
+
+  &.badge--perfume {
+    background: rgba($gold, .15);
+    color: darken($gold, 8%);
+    border: 1px solid rgba($gold, .35);
+  }
+
+  &.badge--makeup {
+    background: rgba($green, .12);
+    color: $green;
+    border: 1px solid rgba($green, .3);
+  }
+
+  &.badge--skincare {
+    background: rgba($green-light, .15);
+    color: darken($green-light, 15%);
+    border: 1px solid rgba($green-light, .3);
+  }
+}
+
+// ─── Image ────────────────────────────────────────────────────────────────────
+.case-card__image {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+
+  img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    transition: transform .4s ease;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba($text, .3) 0%, transparent 55%);
+    pointer-events: none;
+  }
+}
+
+// ─── Notes Pills ──────────────────────────────────────────────────────────────
+.case-card__notes {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  z-index: 3;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity .3s ease .05s, transform .3s ease .05s;
+}
+
+.note-pill {
+  background: rgba(255, 255, 255, .82);
+  backdrop-filter: blur(8px);
+  color: $green;
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 3px 9px;
+  border-radius: 20px;
+  border: 1px solid rgba($green, .25);
+}
+
+// ─── Overlay ──────────────────────────────────────────────────────────────────
+.case-card__overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: rgba(#d4ede2, .45);
+  backdrop-filter: blur(3px);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity .25s ease, transform .25s ease;
+  text-decoration: none;
+  z-index: 4;
+
+  span { color: $text; }
+  i    { font-size: 1rem; color: $green; }
+}
+
+// ─── Body ─────────────────────────────────────────────────────────────────────
+.case-card__body {
+  padding: 16px 18px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+  background: $surface;
+}
+
+.case-card__title {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.3;
+
+  a {
+    color: $text;
+    text-decoration: none;
+    transition: color .2s ease;
+
+    &:hover { color: $green; }
+  }
+}
+
+.case-card__desc {
+  font-size: 0.78rem;
+  color: $text-muted;
+  margin: 0;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+// ─── Footer ───────────────────────────────────────────────────────────────────
+.case-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: 10px;
+  border-top: 1px solid $border;
+}
+
+.case-card__price {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: $gold;              // ← gold for price (premium feel)
+  letter-spacing: 0.04em;
+}
+
+.case-card__cta {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: $green-pale;
+  border: 1px solid rgba($green, .3);
+  color: $green;
+  font-size: 0.8rem;
+  transition: background .2s ease, transform .2s ease;
+  text-decoration: none;
+
+  &:hover {
+    background: $green;
+    color: #fff;
+    transform: scale(1.1);
+  }
+}
+
+// ─── Responsive ───────────────────────────────────────────────────────────────
+@media (max-width: 991.98px) {
+  .case-card__body  { padding: 14px 16px 16px; }
+  .case-card__title { font-size: 0.95rem; }
+
+  .case-area::after { width: clamp(150px, 25vw, 260px); height: clamp(150px, 25vw, 260px); }
+}
+
+@media (max-width: 575.98px) {
+  .case-area        { padding-top: 56px; padding-bottom: 56px; }
+  .case-card        { border-radius: 16px; }
+  .case-card__image { aspect-ratio: 16 / 11; }
+
+  .case-area::after { width: 160px; height: 160px; opacity: 0.12; }
+}

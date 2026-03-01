@@ -1,0 +1,124 @@
+<div class="user-menu mob">
+  <div class="info-container">
+
+    <div>
+      <div class="info">
+        <div class="d-flex align-items-center mb-2 profile">
+          <app-img *ngIf="userProfileImageUrl" [src]="userProfileImageUrl" alt="user"></app-img>
+          <app-img *ngIf="!userProfileImageUrl" src="../../../../../assets/images/icons/account_circle.svg" alt="user"></app-img>
+          <div class="mx-3 w-100">
+            <div class="d-flex justify-content-between">
+              <h6>{{userName}}</h6>
+              <mat-icon *ngIf="!viewMenu" (click)="toggleMenu()">keyboard_arrow_down</mat-icon>
+              <mat-icon *ngIf="viewMenu" (click)="toggleMenu()">keyboard_arrow_up</mat-icon>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="d-flex align-items-center justify-content-between mx-3 mb-3">
+        <!-- <span>{{studentSubInterst}}</span> -->
+    
+      </div>
+      
+    </div>
+    <div *ngIf="viewMenu">
+      <button mat-menu-item>
+        <mat-icon fontSet="material-icons-outlined">brightness_4</mat-icon>
+        <mat-slide-toggle [checked]="darkTheme" (change)="toggleDarkTheme()">{{"Dark" | translate}}</mat-slide-toggle>
+      </button>
+      <button mat-menu-item (click)="changeLanguage()">
+        <mat-icon fontSet="material-icons-outlined">language</mat-icon>
+        <span *ngIf="currentLang != 'ar'">Change Language To Arabic</span>
+        <span *ngIf="currentLang == 'ar'">تغيير اللغة إلى الإنجليزية</span>
+      </button>
+      <button mat-menu-item  routerLinkActive="router-link-active">
+        <mat-icon fontSet="material-icons-outlined">settings_outline</mat-icon>
+        {{'my_account'| translate}}
+      </button>
+
+      <button *ngIf="loggedIn" (click)="logout()" mat-menu-item>
+        <mat-icon>logout_outline</mat-icon>
+        {{ "log_out" | translate }}
+      </button>
+    </div>
+
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/client/home']" routerLinkActive="active">{{'Home' |
+          translate}}</a>
+      </li>
+
+    </ul>
+
+    <button *ngIf="!loggedIn" id="Login_Id" (click)="goToLogin()">
+      {{ "Login" | translate }}
+    </button>
+
+    <div class="logo mobCollapseLogo d-lg-none">
+      <a routerLink="./" fragment="" routerLinkActive="router-link-active">
+        <div class="image" setDark>
+          <app-img src="assets/images/logo-gradiant-2.svg"></app-img>
+        </div>
+      </a>
+      <div *ngIf="viewMenu">
+        <button mat-menu-item>
+          <mat-icon fontSet="material-icons-outlined">brightness_4</mat-icon>
+          <mat-slide-toggle [checked]="darkTheme" (change)="toggleDarkTheme()">{{"Dark" | translate}}</mat-slide-toggle>
+        </button>
+        <button mat-menu-item (click)="changeLanguage()">
+          <mat-icon fontSet="material-icons-outlined">language</mat-icon>
+          <span *ngIf="currentLang != 'ar'">Change Language To Arabic</span>
+          <span *ngIf="currentLang == 'ar'">تغيير اللغة إلى الإنجليزية</span>
+        </button>
+        <button mat-menu-item  routerLinkActive="router-link-active">
+          <mat-icon fontSet="material-icons-outlined">settings_outline</mat-icon>
+          {{'my_account'| translate}}
+        </button>
+        <!-- <button mat-menu-item [routerLink]="['/courses',{ NavigateCoursesTypes: navigateCoursesTypes.Favorite }]"
+          routerLinkActive="router-link-active">
+          <mat-icon>favorite_outline</mat-icon>
+          <a [routerLink]="['/courses']">{{'my-watch'| translate}}</a>
+        </button>
+        <button mat-menu-item  (click)="checkUser(NavigateRegisterType.Wallet)">
+          <mat-icon fontSet="material-icons-outlined">account_balance_wallet_outline</mat-icon>
+          {{ "WALLET" | translate }}
+        </button> -->
+        <button *ngIf="loggedIn" (click)="logout()" mat-menu-item>
+          <mat-icon>logout_outline</mat-icon>
+          {{ "log_out" | translate }}
+        </button>
+      </div>
+
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-item nav-link" onclick="openStandardMenu = true;openNav()"  data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-regular fa-eye"></i> المعاير </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/client/home']" routerLinkActive="active">{{'Home' |
+            translate}}</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/teachers']" routerLinkActive="active">{{'Teachers' |
+            translate}}</a>
+        </li>
+
+      </ul>
+    </div>
+
+    <div>
+      <button *ngIf="!loggedIn" id="Login_Id" (click)="goToLogin()">
+        {{ "Login" | translate }}
+      </button>
+
+      <div class="logo mobCollapseLogo d-lg-none">
+        <a routerLink="./" fragment="" routerLinkActive="router-link-active">
+          <div class="image" setDark>
+            <app-img src="assets/images/logo.png"></app-img>
+          </div>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>

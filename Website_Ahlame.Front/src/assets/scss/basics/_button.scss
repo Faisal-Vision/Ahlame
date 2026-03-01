@@ -1,0 +1,121 @@
+.customBtn {
+  padding: 20px 10px !important;
+  font-weight: 300;
+  border: none;
+  @include border-r();
+  min-height: 41px !important;
+  background-color: #004B74 !important;
+
+  &.sm {
+    min-height: 35px !important;
+  }
+
+  &.lg {
+    height: 3.5rem;
+  }
+
+  &.light {
+    background-color: rgba(var(--whiteRgb), 0.3) !important;
+    backdrop-filter: blur(30px);
+  }
+
+  &.white {
+    background-color: var(--white) !important;
+    border: 1px solid var(--main);
+
+    .mdc-button__label {
+      color: var(--main) !important;
+    }
+    mat-icon{
+      color: var(--main) !important;
+    }
+  }
+
+  &.black {
+    color: var(--white) !important;
+    background: var(--black) !important;
+
+    .mdc-button__label {
+      font-size: 10px;
+    }
+  }
+
+  &.grayLight{
+    background-color: var(--grayLight) !important;
+    color: #000 !important;
+    .mdc-button__label{
+      color: #000 !important;
+    }
+  }
+
+  .icon {
+    width: 25px;
+    margin-inline-end: 5px;
+  }
+
+  &.font-light {
+    .mdc-button__label {
+      font-weight: 300;
+    }
+  }
+
+  &.inline-btn{
+    color: var(--main) !important;
+    text-decoration: underline;
+    font-weight: 500;
+    background-color: transparent !important;
+    padding: 0 !important;
+    .mdc-button__label{
+      color: var(--main) !important;
+    }
+    .mat-mdc-focus-indicator,.mat-mdc-button-touch-target,.mat-mdc-button-ripple,.mat-mdc-button-persistent-ripple{
+      display: none !important;
+    }
+    &.static-color{
+      color: #010c43 !important;
+      .mdc-button__label{
+        color: #010c43 !important;
+      }
+    }
+  }
+
+  .mdc-button__label {
+    color: var(--white);
+    display: flex;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+
+    mat-icon {
+      color: var(--white);
+      font-size: 20px;
+      margin-inline-end: 9px;
+      &.leba-icon-btn{
+        position: relative;
+        left: -7px;
+        margin-inline-end: 0px;
+        &.rtl{
+          left: 0px;
+          transform: rotate(180deg);
+          top: -2px;
+        }
+      }
+    }
+  }
+
+
+
+}
+
+.leba-section{
+  .customBtn.light{
+    background-color: rgba(255,255,255,0.3);
+    .mdc-button__label{
+      color: #fff;
+      margin-inline-end: 10px;
+      mat-icon{
+        color: #fff;
+      }
+    }
+  }
+}

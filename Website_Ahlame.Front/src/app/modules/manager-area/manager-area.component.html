@@ -1,0 +1,101 @@
+<!-- manager-area.component.html -->
+<section class="manager-section">
+
+  <!-- ═══ Decorative background elements ═══ -->
+  <div class="mgr-bg-blob mgr-bg-blob--1"></div>
+  <div class="mgr-bg-blob mgr-bg-blob--2"></div>
+  <div class="mgr-petals">
+    <span class="petal petal--1">✦</span>
+    <span class="petal petal--2">✿</span>
+    <span class="petal petal--3">❋</span>
+    <span class="petal petal--4">✦</span>
+    <span class="petal petal--5">✿</span>
+  </div>
+
+  <div class="container mt-3">
+
+  
+    <!-- ═══ Card 1 — Chairman ═══ -->
+    <div class="mgr-card mgr-card--left wow fadeInUp" data-wow-delay="100ms" data-wow-duration="1200ms">
+
+      <!-- Ribbon -->
+      <div class="mgr-card__ribbon">{{ 'ChairmanOfTheBoard' | translate }}</div>
+
+      <div class="mgr-card__inner">
+
+        <!-- Portrait side -->
+        <div class="mgr-card__portrait-wrap">
+          <div class="mgr-card__portrait-ring"></div>
+          <div class="mgr-card__portrait-ring mgr-card__portrait-ring--2"></div>
+          <div class="mgr-card__portrait">
+            <img src="../../../assets/images/Person/chairman.webp" alt="Chairman" loading="lazy" />
+            <div class="mgr-card__portrait-overlay">
+              <span class="icon-recommend mgr-card__icon"></span>
+            </div>
+          </div>
+          <!-- Floating badge -->
+          <div class="mgr-card__badge">
+            <span class="mgr-card__badge-icon">✦</span>
+            <span>{{ 'Since' | translate }} 2018</span>
+          </div>
+        </div>
+
+        <!-- Content side -->
+        <div class="mgr-card__content">
+          <div class="mgr-card__quote-mark">"</div>
+          <p class="mgr-card__text">{{ 'TitleManger' | translate }}</p>
+          <div class="mgr-card__divider">
+            <span></span><span class="mgr-card__divider-gem">◆</span><span></span>
+          </div>
+          <div class="mgr-card__signature">
+            <div class="mgr-card__sig-line"></div>
+            <span class="mgr-card__role">{{ 'ChairmanOfTheBoard' | translate }}</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ═══ Card 2 — CEO ═══ -->
+    <div class="mgr-card mgr-card--right wow fadeInUp" data-wow-delay="200ms" data-wow-duration="1200ms">
+
+      <!-- Ribbon -->
+      <div class="mgr-card__ribbon mgr-card__ribbon--rose">{{ 'MessageFromTheCEO' | translate }}</div>
+
+      <div class="mgr-card__inner mgr-card__inner--reverse">
+
+        <!-- Portrait side -->
+        <div class="mgr-card__portrait-wrap">
+          <div class="mgr-card__portrait-ring mgr-card__portrait-ring--rose"></div>
+          <div class="mgr-card__portrait-ring mgr-card__portrait-ring--2 mgr-card__portrait-ring--rose2"></div>
+          <div class="mgr-card__portrait">
+            <img src="../../../assets/images/Person/ceo2.webp" alt="CEO" loading="lazy" />
+            <div class="mgr-card__portrait-overlay mgr-card__portrait-overlay--rose">
+              <span class="icon-recommend mgr-card__icon"></span>
+            </div>
+          </div>
+          <!-- Floating badge -->
+          <div class="mgr-card__badge mgr-card__badge--rose">
+            <span class="mgr-card__badge-icon">✿</span>
+            <span>CEO</span>
+          </div>
+        </div>
+
+        <!-- Content side -->
+        <div class="mgr-card__content">
+          <div class="mgr-card__quote-mark mgr-card__quote-mark--rose">"</div>
+          <p class="mgr-card__text">{{ 'TitleSEO' | translate }}</p>
+          <div class="mgr-card__divider">
+            <span></span><span class="mgr-card__divider-gem mgr-card__divider-gem--rose">◆</span><span></span>
+          </div>
+          <div class="mgr-card__signature">
+            <div class="mgr-card__sig-line mgr-card__sig-line--rose"></div>
+            <span class="mgr-card__role">{{ 'MessageFromTheCEO' | translate }}</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>

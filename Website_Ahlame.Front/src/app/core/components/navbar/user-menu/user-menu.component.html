@@ -1,0 +1,35 @@
+<div class="user-menu ">
+  <button mat-button  id="menu_Id" [matMenuTriggerFor]="menu" class="m-auto">
+    <mat-icon>expand_more</mat-icon>
+    <div class="image-round">
+      <app-img *ngIf="userProfileImageUrl" [src]="userProfileImageUrl" alt="user"></app-img>
+      <app-img *ngIf="!userProfileImageUrl" src="../../../../../assets/Img/avatarimg.gif" class="image-avatar" alt="user"></app-img>
+    </div>
+  </button>
+  <mat-menu #menu="matMenu">
+    <div class="info">
+      <div class="d-flex align-items-center mb-2">
+        <app-img *ngIf="userProfileImageUrl" [src]="userProfileImageUrl" alt="user"></app-img>
+        <app-img *ngIf="!userProfileImageUrl" src="../../../../../assets/Img/avatarimg.gif" alt="user"></app-img>
+        <h6>{{userName}}</h6>
+      </div>
+      <div class="d-flex align-items-center justify-content-between mb-3">
+        <!-- <span>{{studentSubInterst}}</span> -->
+       
+      </div>
+    </div>
+    <button mat-menu-item>
+      <mat-icon fontSet="material-icons-outlined">brightness_4</mat-icon>
+      <!-- <mat-slide-toggle [checked]="darkTheme" (change)="toggleDarkTheme()">{{"Dark" | translate}}</mat-slide-toggle> -->
+    </button>
+    <button mat-menu-item (click)="changeLanguage()">
+      <mat-icon fontSet="material-icons-outlined">language</mat-icon>
+      <span *ngIf="currentLang != 'ar'">Change Language To Arabic</span>
+      <span *ngIf="currentLang == 'ar'">تغيير اللغة إلى الإنجليزية</span>
+    </button>
+    <!-- <button *ngIf="!loggedIn" id="Login_Id" (click)="goToLogin()" mat-menu-item>
+      <mat-icon>login_outline</mat-icon>
+      {{ "LogOut" | translate }}
+    </button>  -->
+  </mat-menu>
+</div>

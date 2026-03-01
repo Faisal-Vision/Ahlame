@@ -1,0 +1,208 @@
+// ═══════════════════════════════════════════════════════════════
+//  about-area — احلامي للمستحضرات التجميلية
+//  All colors from :root variables
+// ═══════════════════════════════════════════════════════════════
+
+.about-area {
+  position: relative;
+  overflow: hidden;
+  background: var(--sub-bg);
+
+  // ambient blobs
+  &::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 340px; height: 340px;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--old-color), transparent 70%);
+    pointer-events: none;
+  }
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -60px; left: -60px;
+    width: 260px; height: 260px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(173,119,51,.07), transparent 70%);
+    pointer-events: none;
+  }
+
+  .container { position: relative; z-index: 1; }
+}
+
+// ── Image wrapper ─────────────────────────────────────────────
+.about__img-wrapper {
+  position: relative;
+  border-radius: 24px;
+  overflow: visible;
+
+  app-lazy-load-image,
+  app-lazy-load-image > img {
+    display: block;
+    width: 100%;
+    border-radius: 24px;
+    object-fit: cover;
+    max-height: 520px;
+    box-shadow: 0 16px 48px rgba(0,0,0,.10);
+    border: 1px solid var(--border);
+    transition: var(--transition);
+  }
+
+  &:hover app-lazy-load-image > img { transform: scale(1.02); }
+
+  // green → gold top accent
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-back));
+    border-radius: 24px 24px 0 0;
+    z-index: 2;
+  }
+}
+
+// ── Floating badge ────────────────────────────────────────────
+.about__badge {
+  position: absolute;
+  bottom: 24px;
+  right: 24px;
+  z-index: 4;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: 50px;
+  background: var(--main-bg);
+  box-shadow: 0 8px 24px rgba(0,0,0,.12);
+  border: 1px solid var(--border);
+  font-size: .82rem;
+  font-weight: 700;
+  color: var(--heading-color);
+  letter-spacing: .04em;
+
+  i {
+    color: var(--secondary-back);
+    font-size: 1rem;
+  }
+}
+
+// ── Decorative corner ─────────────────────────────────────────
+.about__corner-deco {
+  position: absolute;
+     top: -240px;
+    right: -120px;
+  width: clamp(100px, 18vw, 200px);
+  height: clamp(100px, 18vw, 200px);
+  background-image: url('https://templates.g5plus.net/glowing-bootstrap-5/assets/images/background/bg-landing-home-02.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom left;
+  opacity: .16;
+  pointer-events: none;
+  z-index: 0;
+}
+
+// ── Section header ────────────────────────────────────────────
+.about-area .section-title {
+  font-size: 2.1rem;
+  font-weight: 900;
+  color: var(--heading-color);
+  line-height: 1.25;
+  margin: 12px 0 0;
+}
+
+.about__desc {
+  font-size: .95rem;
+  color: var(--paragraph);
+  line-height: 1.85;
+  margin-top: 18px;
+}
+
+// ── Highlights list ───────────────────────────────────────────
+.about__highlights {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.about__highlight-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 16px 20px;
+  border-radius: 16px;
+  background: var(--main-bg);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+
+  &:hover {
+    transform: translateX(-6px);
+    border-color: rgba(78,118,97,.25);
+    box-shadow: 0 8px 24px rgba(78,118,97,.10);
+
+    .about__highlight-icon { transform: rotate(-8deg) scale(1.1); }
+  }
+
+  h6 {
+    font-size: .92rem;
+    font-weight: 800;
+    color: var(--heading-color);
+    margin: 0 0 4px;
+  }
+
+  p {
+    font-size: .8rem;
+    color: var(--paragraph);
+    margin: 0;
+    line-height: 1.5;
+  }
+}
+
+// ── Highlight icon ────────────────────────────────────────────
+.about__highlight-icon {
+  flex-shrink: 0;
+  width: 46px; height: 46px;
+  border-radius: 14px;
+  background: var(--old-color);
+  border: 1px solid rgba(78,118,97,.22);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+
+  i { font-size: 1.15rem; color: var(--primary-color); }
+
+  &--gold {
+    background: rgba(173,119,51,.12);
+    border-color: rgba(173,119,51,.22);
+
+    i { color: var(--secondary-back); }
+  }
+}
+
+// ── CTA ───────────────────────────────────────────────────────
+.about__info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+// ── RTL hover tweak ───────────────────────────────────────────
+[dir='ltr'] .about__highlight-item:hover { transform: translateX(6px); }
+
+// ── Responsive ────────────────────────────────────────────────
+@media (max-width: 1199px) {
+  .about-area .section-title { font-size: 1.75rem; }
+}
+
+@media (max-width: 767px) {
+  .about-area .section-title  { font-size: 1.5rem; }
+  .about__badge               { bottom: 14px; right: 14px; padding: 8px 14px; font-size: .76rem; }
+  .about__highlight-item      { padding: 14px 16px; }
+  .about__highlight-icon      { width: 40px; height: 40px; border-radius: 12px; i { font-size: 1rem; } }
+}

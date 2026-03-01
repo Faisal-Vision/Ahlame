@@ -1,0 +1,52 @@
+.tabs{
+  .mat-mdc-text-field-wrapper{
+    background-color: transparent !important;
+    border: 1px solid #EBEBEB;
+    @include border-r();
+  }
+  .mat-mdc-form-field{width: 280px;}
+  .mat-mdc-form-field-hint-wrapper, .mat-mdc-form-field-error-wrapper{display: none !important;}
+  .mat-mdc-form-field:hover .mat-mdc-form-field-focus-overlay,
+  .mat-mdc-form-field.mat-focused .mat-mdc-form-field-focus-overlay{opacity: 0;}
+
+}
+.mat-mdc-option.mdc-list-item{
+  border-top: 1px solid #EBEBEB;
+}
+.mdc-text-field--filled:not(.mdc-text-field--disabled) .mdc-line-ripple::before,
+.mdc-text-field--filled:not(.mdc-text-field--disabled) .mdc-line-ripple::after{display: none;}
+.mat-mdc-option .mdc-list-item__primary-text{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  font-size: 15px !important;
+  font-weight: 500 !important;
+  .icon{
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: #DEDEDE;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-inline-end: 10px;
+    app-img{
+      width: 12px;
+      height: 12px;
+      display: flex;
+      filter: brightness(0);
+    }
+  }
+}
+// timePicker style
+.datePicker .mat-mdc-form-field-subscript-wrapper{
+  display: none;
+}
+.mat-mdc-select-value{margin-top: 15px;}
+body.dark .mdc-text-field:not(.mdc-text-field--disabled) .mdc-floating-label,
+body.dark .mat-mdc-select-value{
+  color: unset !important;
+}
+body.dark .mat-mdc-select-arrow{
+  color: #fff;
+}

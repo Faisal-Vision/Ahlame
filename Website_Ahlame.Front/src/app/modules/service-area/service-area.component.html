@@ -1,0 +1,100 @@
+<section class="service-area pt-70 pb-120">
+  <div class="container">
+    <div class="d-flex flex-wrap gap-4 align-items-center justify-content-center">
+              <!-- ═══ Section Header ═══ -->
+    <div class="mgr-header wow fadeInUp" data-wow-delay="00ms" data-wow-duration="1200ms">
+      <span class="mgr-header__eyebrow">
+        <span class="mgr-header__line"></span>
+                   {{'Products and Services' | translate}}
+
+
+        <span class="mgr-header__line"></span>
+      </span>
+    </div>
+
+   
+    </div>
+
+      <div class="d-flex flex-wrap gap-4 align-items-center justify-content-end">
+         <a [routerLink]="['/service']" class="btn-one wow fadeInUp" data-wow-delay="200ms" data-wow-duration="1500ms">
+        {{"View All Services" | translate}}
+        <i class="fa-regular fa-arrow-right-long"></i>
+      </a>
+
+      </div>
+    <!-- Swiper container -->
+    <ng-container *ngIf="!isLoading && !errorMessage; else serviceAreaState">
+      <swiper-container
+        loop="true"
+        autoplay="true"
+        slides-per-view="3"
+        speed="3000"
+        navigation="true"
+        autoplay-delay="7000"
+        space-between="20"
+        navigation-next-el=".custom-next-button"
+        navigation-prev-el=".custom-prev-button"
+        #swiper2
+        class="row g-4 position-relative py-8">
+
+        <swiper-slide
+          *ngFor="let category of categories"
+          class="col-lg-4 col-md-6 wow bounceInUp py-8"
+          data-wow-delay="00ms"
+          data-wow-duration="1000ms">
+
+          <!-- Card with dynamic accent color via CSS variable -->
+          <div
+            class="service-category-card d-flex flex-column"
+            [style.--accent]="category.accentColor || '#4B227A'">
+
+            <!-- Accent top bar -->
+            <div class="service-category-card__accent-bar"></div>
+
+            <!-- Header: icon + category name -->
+            <div class="d-flex gap-3 align-items-center mb-2">
+              <div class="service__icon">
+                <i [class]="category.icon" class="icons-service"></i>
+              </div>
+              <p class="service-category-card__eyebrow mb-0">
+                {{ category.category | translate }}
+              </p>
+            </div>
+
+            <!-- Summary -->
+            <p class="service-category-card__summary flex-grow-1">
+              {{ category.summary | translate }}
+            </p>
+
+            <!-- Services list (max 3) -->
+            <ul class="service-category-card__list">
+              <li *ngFor="let service of category.services | slice:0:3">
+                {{ service.title | translate }}
+              </li>
+            </ul>
+
+            <!-- CTA -->
+            <a
+              [routerLink]="['/service']"
+              [fragment]="category.category"
+              class="btn btn-link p-0 read-more mt-auto align-self-start">
+              {{"Explore More" | translate}}
+              <i class="fa-regular fa-arrow-right-long ms-1"></i>
+            </a>
+
+          </div>
+        </swiper-slide>
+      </swiper-container>
+    </ng-container>
+
+    <ng-template #serviceAreaState>
+      <div class="text-center py-5">
+        <span *ngIf="isLoading" class="spinner-border text-primary" role="status" aria-hidden="true"></span>
+        <p *ngIf="!isLoading && errorMessage" class="mt-3 text-danger">{{ errorMessage }}</p>
+      </div>
+    </ng-template>
+  </div>
+
+  <div class="custom-prev-button"><i class="fa fa-chevron-left"></i></div>
+  <div class="custom-next-button"><i class="fa fa-chevron-right"></i></div>
+</section>
