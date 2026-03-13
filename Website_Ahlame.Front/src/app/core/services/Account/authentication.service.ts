@@ -1,60 +1,87 @@
-
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 import { HttpService } from '../Http/http.service';
+import { LocalStorageService } from './local-storage.service';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable({ providedIn: 'root' })
 export class AuthenticationService {
-  constructor(public httpService: HttpService,private router:Router) { }
 
-  isAuthenticated(): Promise<boolean> {
-    //TODO:  check token exist in storage
-    return new Promise((resolve, reject) => {
-      resolve(this.IsLogin());
-    });
+  private readonly TOKEN_KEY = 'ahlame_token';
+  private readonly USER_KEY = 'ahlame_user';
+
+  constructor(
+    private http: HttpClient,
+    private httpService: HttpService,
+    private router: Router,
+    private localStorageService: LocalStorageService
+  ) {}
+
+  // async login(credentials: { username: string; password: string }): Promise<any> {
+  //   try {
+  //     const result = await this.http.post(
+  //       'https://localhost:44343/api/Account/Login',
+  //       {
+  //         email: credentials.username.trim(),
+  //         password: credentials.password
+  //       }
+  //     ).toPromise();
+
+  //     if (result && (result as any).success) {
+  //       const token = (result as any).returnObject?.token;
+  //       const user = (result as any).returnObject?.user;
+  //       if (token) this.localStorageService.storeData(this.TOKEN_KEY, token);
+  //       if (user) this.localStorageService.storeData(this.USER_KEY, user);
+  //     }
+
+  //     return result;
+  //   } catch (error) {
+  //     console.error('Login error:', error);
+  //     throw error;
+  //   }
+  // }
+
+  async login(credentials: { username: string; password: string }): Promise<any> {
+  try {
+    const result = await this.httpService.post<any>(
+      'Account/Login',  // ← فقط المسار، بدون URL ثابت
+      {
+        email: credentials.username.trim(),
+        password: credentials.password
+      }
+    );
+
+    if (result && result.success) {
+      const token = result.returnObject?.token;
+      const user = result.returnObject?.user;
+      if (token) this.localStorageService.storeData(this.TOKEN_KEY, token);
+      if (user) this.localStorageService.storeData(this.USER_KEY, user);
+    }
+
+    return result;
+  } catch (error) {
+    console.error('Login error:', error);
+    throw error;
+  }
+}
+
+  getToken(): string | null {
+    return localStorage.getItem('token');
   }
 
-  getToken(): Promise<string>
- {
-
-    return new Promise((resolve, reject) => {
-      var token  = "";
-
-      var data = localStorage.getItem("token");
-      if(data)
-      token = data?data:"";
-      resolve(token);
-    });
-  }
-
-  login(studentLoginVM: any)
-  {
-    return this.httpService.post("Account/Login", studentLoginVM);
-  }
-
-  loginSSO(studentLoginVM: any)
-  {
-    return this.httpService.post("Account/LoginSSO", studentLoginVM);
-  }
-
-  logout()
-  {
+  logout(): void {
     localStorage.clear();
-    // this.router.navigateByUrl(`auth/sign-in`);
-    //return this.httpService.get("Account/StudentLogout");
+    this.router.navigateByUrl('/auth/login');
   }
 
-  IsLogin():boolean
-  {
-    const storedValue = localStorage.getItem("token");
-    if (storedValue !== null)
+  IsLogin(): boolean {
+    const storedValue = localStorage.getItem('token');
+    if (storedValue !== null) {
       return true;
-    else
-    {
-      // this.router.navigateByUrl(`auth/sign-in`);
+    } else {
+      this.router.navigateByUrl('/auth/login');
       return false;
     }
   }
-}
+
+} // ← قوس إغلاق الكلاس

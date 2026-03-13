@@ -2,7 +2,7 @@ import { environment } from 'src/environments/environment';
 import { LangService } from '../../services/lang/lang.service';
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 // import { UserType } from 'src/app/enums/user-type';
 
 @Component({
@@ -27,39 +27,52 @@ export class NavbarComponent implements OnInit {
               private router: Router) {
   }
 
-  ngOnInit(): void {
-    this.currentLang = localStorage.getItem('lang') || environment.defaultLang;
-    this.currentEncUserId = localStorage.getItem('userId');
-    this.isRTL = this.currentLang === 'ar';
-    var localStorageTheme = localStorage.getItem('theme');
-    if(localStorageTheme == 'dark')
-    {
+ngOnInit(): void {
+  this.currentLang = localStorage.getItem('lang') || environment.defaultLang;
+  this.currentEncUserId = localStorage.getItem('userId');
+  this.isRTL = this.currentLang === 'ar';
+  
+  this.checkLoginStatus();
 
-      this.darkTheme = true;
-
-    this.lang.currentTheme.next('dark' );
-    localStorage.setItem('theme', 'dark' );
+  // ← أضف هذا: يتحقق من الـ token عند كل تنقل بين الصفحات
+  this.router.events.subscribe((evt) => {
+    if (evt instanceof NavigationEnd) {
+      this.checkLoginStatus();
     }
-    else
-    {
-      this.darkTheme = false;
+  });
 
+  var localStorageTheme = localStorage.getItem('theme');
+  if(localStorageTheme == 'dark') {
+    this.darkTheme = true;
+    this.lang.currentTheme.next('dark');
+    localStorage.setItem('theme', 'dark');
+  } else {
+    this.darkTheme = false;
     this.lang.currentTheme.next('light');
-    localStorage.setItem('theme',  'light');
-    }
+    localStorage.setItem('theme', 'light');
   }
+}
 
   toggleSidebar() {
     this.isSidebarOpen = !this.isSidebarOpen;
 
 
   }
+  checkLoginStatus(): void {
+  this.isLogin = !!localStorage.getItem('token');
+}
+
+logout(): void {
+  localStorage.clear();
+  this.isLogin = false;
+  this.router.navigateByUrl('/auth/login');
+}
 
   // Dynamically change the logo based on the language (RTL/LTR)
   get logoSrc(): string {
     return this.isRTL
-      ? 'https://templates.g5plus.net/glowing-bootstrap-5/assets/images/others/logo.png'
-      : 'https://templates.g5plus.net/glowing-bootstrap-5/assets/images/others/logo.png';
+      ? '../../../assets/images/logo/svg/Artboard 213.svg'
+      : '../../../assets/images/logo/svg/Artboard 213.svg';
   }
 
   // Handle language change dynamically

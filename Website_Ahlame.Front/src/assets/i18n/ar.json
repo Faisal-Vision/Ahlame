@@ -1087,7 +1087,11 @@
   "Have a privacy question or want to exercise your rights? Connect with our data team and we will respond quickly with the guidance you need.": "لديك سؤال متعلق بالخصوصية أو ترغب في ممارسة حقوقك؟ تواصل مع فريق البيانات لدينا وسنرد عليك بسرعة مع الإرشادات اللازمة.",
   "Your beauty privacy, your choice": "خصوصيتك الجمالية... خيارك",
   "Have questions about your beauty data privacy or want to exercise your rights? Connect with our customer care team and we'll respond quickly with the support you need.": "لديك أسئلة حول خصوصية بياناتك الجمالية أو ترغب في ممارسة حقوقك؟ تواصل مع فريق رعاية العملاء وسنرد بسرعة بالدعم الذي تحتاجه.",
-  "Talk to us": "تواصل معنا",
+  "We're Here to Help": "نحن هنا لمساعدتك",
+  "Reach out to our beauty consultants for personalized recommendations and expert advice on your perfect beauty routine.": "تواصلي مع مستشارات الجمال لدينا للحصول على توصيات مخصصة ونصائح خبراء لروتين الجمال المثالي.",
+  "Call Us": "اتصلي بنا",
+  "Email Support": "دعم البريد الإلكتروني",
+  "Live Chat": "الدردشة الحية",
   "Terms & Conditions": "الشروط والأحكام",
   "Ahlame Beauty Legal Framework": "الإطار القانوني لأحلام بيوتي",
   "Beauty and wellness products you can trust": "منتجات جمال وعناية يمكنك الوثوق بها",
@@ -1751,7 +1755,19 @@
     "Phone": "الهاتف",
     "Subject": "الموضوع",
     "Data Protection at Ahlame Beauty":"حماية بياناتك في احلامي",
-    "Your beauty privacy matters":"بياناتك في احلامي مهمة"
+    "Your beauty privacy matters":"بياناتك في احلامي مهمة",
+    "Login":"تسجيل دخول",
+    "Logout":"تسجيل خروج",
+    "ContactAdmin":"طلبات التواصل",
+    "cancel":"الغاء",
+    "save":"حفظ",
+    "edit":"تعديل",
+    "add":"اضافة",
+    "required":"حقل اجباري",
+    "deletemessage":"هل تريد الحذف",
+    "Sending...":"جاري الإرسال",
+    "Sent successfully":"تم الإرسال بنجاح"
+
     
   
 

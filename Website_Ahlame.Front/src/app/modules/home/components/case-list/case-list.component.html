@@ -83,14 +83,14 @@
 
             <!-- Meta grid -->
             <div class="pd__meta-grid">
-              <div class="pd__meta-item" *ngIf="project.client">
+              <!-- <div class="pd__meta-item" *ngIf="project.client">
                 <i class="fa-regular fa-user"></i>
                 <span>{{ project.client }}</span>
               </div>
               <div class="pd__meta-item" *ngIf="project.location">
                 <i class="fa-regular fa-location-dot"></i>
                 <span>{{ project.location }}</span>
-              </div>
+              </div> -->
               <div class="pd__meta-item" *ngIf="project.completedDate">
                 <i class="fa-regular fa-calendar"></i>
                 <span>{{ project.completedDate }}</span>
@@ -98,12 +98,12 @@
             </div>
 
             <!-- CTAs -->
-            <div class="pd__actions">
+            <!-- <div class="pd__actions">
               <button class="pd__wishlist-btn" (click)="toggleWishlist()">
                 <i class="fa-regular" [ngClass]="wishlisted ? 'fa-heart-pulse' : 'fa-heart'"></i>
                 {{ "Add to Wishlist" | translate }}
               </button>
-            </div>
+            </div> -->
 
           </div>
         </div>

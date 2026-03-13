@@ -1,0 +1,16 @@
+﻿global using API;
+global using Data;
+global using Data.UnitOfWork;
+global using Microsoft.AspNetCore.Authentication.JwtBearer;
+global using Microsoft.AspNetCore.Authorization;
+global using Microsoft.AspNetCore.Mvc;
+global using Microsoft.AspNetCore.ResponseCompression;
+global using Microsoft.EntityFrameworkCore;
+global using Microsoft.IdentityModel.Tokens;
+global using Microsoft.OpenApi.Models;
+global using Services;
+global using Services.Base;
+global using Services.Interfaces;
+global using Shared;
+global using System.Text;
+global using System.Text.Json.Serialization;

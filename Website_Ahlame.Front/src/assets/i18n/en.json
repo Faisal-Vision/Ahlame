@@ -1059,7 +1059,11 @@
   "Have a privacy question or want to exercise your rights? Connect with our data team and we will respond quickly with the guidance you need.": "Have a privacy question or want to exercise your rights? Connect with our data team and we will respond quickly with the guidance you need.",
   "Your beauty privacy, your choice": "Your beauty privacy, your choice",
   "Have questions about your beauty data privacy or want to exercise your rights? Connect with our customer care team and we'll respond quickly with the support you need.": "Have questions about your beauty data privacy or want to exercise your rights? Connect with our customer care team and we'll respond quickly with the support you need.",
-  "Talk to us": "Talk to us",
+  "We're Here to Help": "We're Here to Help",
+  "Reach out to our beauty consultants for personalized recommendations and expert advice on your perfect beauty routine.": "Reach out to our beauty consultants for personalized recommendations and expert advice on your perfect beauty routine.",
+  "Call Us": "Call Us",
+  "Email Support": "Email Support",
+  "Live Chat": "Live Chat",
 
 
   "Terms & Conditions": "Terms & Conditions",
@@ -1771,7 +1775,18 @@
     "CEO_MSG_2": "We continue to invest in innovation, research, and development to ensure that everything we offer meets the highest standards of quality and efficacy.",
     "CEO_MSG_3": "Ahlaami's future is shaped by our team's passion and our clients' trust — and that is what drives us forward every single day.",
     "Phone":"Phone",
-    "Subject":"Subject"
+    "Subject":"Subject",
+      "Login":"Login ",
+    "Logout":"Logout ",
+    "ContactAdmin":"ContactAdmin",
+      "cancel":"cancel",
+    "save":"save",
+    "edit":"edit",
+    "add":"add",
+    "required":"required",
+    "deletemessage":"deletemessage",
+    "Sending...":"Sending...",
+    "Sent successfully":"Sent successfully"
 }
 
 

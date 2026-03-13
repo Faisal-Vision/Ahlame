@@ -258,6 +258,7 @@
 
 .social-links {
   display: flex;
+   justify-content: space-evenly;
   gap: 10px;
 
   a {
@@ -282,7 +283,117 @@
   }
 }
 
-// ── Right Panel (Form) ────────────────────────────────────────
+// ── Right Panel (Communication Image) ────────────────────────────────
+.communication-image-container {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  height: 100%;
+  min-height: 500px;
+}
+
+.communication-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+  
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+.communication-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 50%, transparent 100%);
+  padding: 40px 30px;
+  display: flex;
+  align-items: flex-end;
+  height: 100%;
+}
+
+.communication-content {
+  color: white;
+  text-align: center;
+  width: 100%;
+}
+
+.communication-content h4 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-bottom: 12px;
+  line-height: 1.2;
+}
+
+.communication-content p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-bottom: 24px;
+  opacity: 0.9;
+}
+
+.communication-channels {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.channel-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: rgba(255,255,255,0.15);
+  border-radius: 25px;
+  border: 1px solid rgba(255,255,255,0.25);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  
+  i {
+    font-size: 0.9rem;
+    color: white;
+  }
+  
+  span {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: white;
+    white-space: nowrap;
+  }
+  
+  &:hover {
+    background: rgba(255,255,255,0.25);
+    border-color: rgba(255,255,255,0.4);
+    transform: translateY(-2px);
+  }
+}
+
+// Responsive for communication section
+@media (max-width: 767px) {
+  .communication-overlay {
+    padding: 30px 20px;
+  }
+  
+  .communication-content h4 {
+    font-size: 1.3rem;
+  }
+  
+  .communication-channels {
+    gap: 12px;
+  }
+  
+  .channel-item {
+    padding: 6px 12px;
+    
+    span {
+      font-size: 0.75rem;
+    }
+  }
+}
 .contact__right-panel {
   background: var(--main-bg);
   padding: 48px 44px;
@@ -320,6 +431,11 @@
 
 .mb-32 { margin-bottom: 32px; }
 .mt-12 { margin-top: 12px; }
+
+.image-contact{
+      max-width: 100%;
+    border-radius: 10px;
+}
 
 // ── Form ──────────────────────────────────────────────────────
 .contact__form form {
@@ -395,6 +511,10 @@
   box-shadow: 0 8px 24px rgba(78,118,97,.3);
   transition: var(--transition);
   align-self: flex-start;
+
+  & span{
+    color: white;
+  }
 
   i { transition: transform .25s ease; }
 

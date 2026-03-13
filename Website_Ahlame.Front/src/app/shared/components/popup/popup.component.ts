@@ -19,8 +19,9 @@ export class PopupComponent implements AfterViewInit {
     this.popupContent?.clear();
 
     // Render the content template
-    if (this.data?.contentTemplateRef) {
-      this.popupContent.createEmbeddedView(this.data?.contentTemplateRef);
+    const templateRef = this.data?.contentTemplateRef ?? this.data?.content;
+    if (templateRef) {
+      this.popupContent.createEmbeddedView(templateRef);
       this.cdr.detectChanges();
     }
   }

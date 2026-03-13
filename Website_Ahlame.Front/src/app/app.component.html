@@ -1,19 +1,9 @@
 <app-top-header></app-top-header>
 <app-navbar></app-navbar>
 <!-- <ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="ball-spin-clockwise"></ngx-spinner> -->
-
-<section *ngIf="!isLoading">
-  <router-outlet (activate)="onActivate()"></router-outlet>
+<section>
+  <router-outlet></router-outlet>
 </section>
-<!-- <div class="loading" *ngIf="isLoading">
-  <div class="loading-overlay">
-    <img src="../assets/Img/loading.gif" alt="Loading..." class="loading-spinner">
-  </div>
-  
-</div> -->
-<!-- <app-preloader *ngIf="isLoading"></app-preloader> -->
-
-
 
 
 <a  data-target="html" class="scroll-to-target scroll-to-top" (click)="scrollToTop()" *ngIf="isButtonVisible" style="display: inline;"><i

@@ -1,0 +1,11 @@
+﻿global using Data.UnitOfWork;
+global using Entities.Abstraction;
+global using Mapster;
+global using Microsoft.AspNetCore.Http;
+global using Microsoft.EntityFrameworkCore;
+global using Services.Base;
+global using Services.Interfaces;
+global using Shared.Helpers;
+global using Data.Entities;
+global using FluentValidation;
+global using Shared;

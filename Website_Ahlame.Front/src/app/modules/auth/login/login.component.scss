@@ -1,0 +1,300 @@
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap');
+
+$P:   #4e7661;
+$P2:  #3b5c4a;
+$G:   #ad7733;
+$wh:  #ffffff;
+$bg:  #f0f4f2;
+$txt: #1c2e22;
+$sub: #7a9086;
+$bdr: #d8e4de;
+$err: #c0392b;
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:host { display: block; font-family: 'Tajawal', sans-serif; direction: rtl; }
+
+// ── Full page ───────────────────────────────────────────
+.lx {
+  // min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  background: $bg;
+  position: relative;
+  overflow: hidden;
+}
+
+// Soft background blobs
+.lx__bg { position: absolute; inset: 0; pointer-events: none; }
+
+.lx__blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.45;
+  animation: float 9s ease-in-out infinite;
+}
+.lx__blob--1 {
+  width: 480px; height: 480px;
+  background: radial-gradient(circle, rgba($P, 0.22), transparent 70%);
+  top: -160px; right: -120px;
+  animation-delay: 0s;
+}
+.lx__blob--2 {
+  width: 320px; height: 320px;
+  background: radial-gradient(circle, rgba($G, 0.15), transparent 70%);
+  bottom: -80px; left: -80px;
+  animation-delay: 4.5s;
+}
+@keyframes float {
+  0%,100% { transform: translate(0,0); }
+  50%      { transform: translate(14px,-14px); }
+}
+
+// ── Card ────────────────────────────────────────────────
+.lx__card {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 420px;
+  background: $wh;
+  border-radius: 24px;
+  padding: 44px 40px 36px;
+  box-shadow:
+    0 1px 0 rgba($P, 0.06),
+    0 20px 60px rgba(#0e1a13, 0.12),
+    0 4px 16px rgba(#0e1a13, 0.06);
+  animation: up 0.6s cubic-bezier(0.16,1,0.3,1) both;
+
+  // top accent line
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 15%; right: 15%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, $P, $G, $P, transparent);
+    border-radius: 0 0 4px 4px;
+  }
+
+  @media (max-width: 480px) { padding: 36px 24px 28px; }
+}
+
+@keyframes up {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+// ── Logo ────────────────────────────────────────────────
+.lx__logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  span {
+    font-size: 1.35rem;
+    font-weight: 900;
+    color: $P;
+    letter-spacing: -0.02em;
+  }
+}
+
+.lx__logo-icon {
+  width: 40px; height: 40px;
+  background: $P;
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 12px rgba($P, 0.35);
+}
+
+// ── Head ────────────────────────────────────────────────
+.lx__head {
+  text-align: center;
+     margin-bottom: 19px;
+    margin-top: 14px;
+    font-family: 'Cairo-SemiBold';
+
+  h1 {
+    font-size: 1.7rem;
+    font-weight: 900;
+    color: $txt;
+    letter-spacing: -0.03em;
+    margin-bottom: 6px;
+  }
+  p {
+    font-size: 0.85rem;
+    color: $sub;
+  }
+}
+
+// ── Alert ───────────────────────────────────────────────
+.lx__alert {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba($err, 0.05);
+  border: 1px solid rgba($err, 0.2);
+  border-right: 3px solid $err;
+  border-radius: 10px;
+  padding: 10px 12px;
+  color: $err;
+  font-size: 0.83rem;
+  margin-bottom: 20px;
+  animation: shake 0.35s ease;
+
+  svg { flex-shrink: 0; }
+}
+
+@keyframes shake {
+  0%,100% { transform: translateX(0); }
+  25%,75% { transform: translateX(-4px); }
+  50%     { transform: translateX(4px); }
+}
+
+// ── Field ───────────────────────────────────────────────
+.lx__field {
+  margin-bottom: 18px;
+
+  label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: $txt;
+    margin-bottom: 7px;
+  }
+
+  &--err .lx__input {
+    border-color: rgba($err, 0.4);
+    background: rgba($err, 0.02);
+  }
+}
+
+.lx__input {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: $bg;
+  border: 1.5px solid $bdr;
+  border-radius: 12px;
+  padding: 0 14px;
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+
+  &:focus-within {
+    border-color: $P;
+    background: $wh;
+    box-shadow: 0 0 0 4px rgba($P, 0.1);
+  }
+
+  svg { color: $sub; flex-shrink: 0; transition: color 0.2s; }
+  &:focus-within svg { color: $P; }
+
+  input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    padding: 13px 0;
+    font-size: 0.92rem;
+    font-family: 'Tajawal', sans-serif;
+    color: $txt;
+    direction: ltr;
+    text-align: left;
+    min-width: 0;
+
+    &::placeholder { color: #b8c8c0; }
+  }
+}
+
+.lx__eye {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: $sub;
+  display: flex;
+  padding: 4px;
+  flex-shrink: 0;
+  transition: color 0.2s;
+
+  &:hover { color: $P; }
+}
+
+.lx__err {
+  display: block;
+  font-size: 0.75rem;
+  color: $err;
+  margin-top: 5px;
+}
+
+// ── Button ──────────────────────────────────────────────
+.lx__btn {
+  width: 100%;
+  background: $P;
+  border: none;
+  border-radius: 12px;
+  padding: 14px;
+  color: $wh;
+  font-size: 1rem;
+  font-weight: 800;
+  font-family: 'Tajawal', sans-serif;
+  cursor: pointer;
+  margin-top: 8px;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+ & span{
+  color: white;
+ }
+  // shimmer sweep
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 70%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba($G, 0.28), transparent);
+    transform: skewX(-15deg);
+    transition: left 0.55s ease;
+  }
+
+  &:hover:not(:disabled) {
+    background: $P2;
+    box-shadow: 0 8px 24px rgba($P, 0.4);
+    transform: translateY(-1px);
+    &::after { left: 140%; }
+  }
+
+  &:active:not(:disabled) { transform: scale(0.98); }
+  &:disabled { opacity: 0.45; cursor: not-allowed; }
+}
+
+.lx__dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  height: 20px;
+
+  span {
+    width: 7px; height: 7px;
+    background: $wh;
+    border-radius: 50%;
+    animation: blink 0.9s ease-in-out infinite;
+
+    &:nth-child(2) { animation-delay: 0.15s; }
+    &:nth-child(3) { animation-delay: 0.3s; }
+  }
+}
+
+@keyframes blink {
+  0%,80%,100% { opacity: 0.3; transform: scale(0.75); }
+  40%         { opacity: 1;   transform: scale(1); }
+}
+
+// ── Footer ──────────────────────────────────────────────
+.lx__copy {
+  text-align: center;
+  margin-top: 24px;
+  font-size: 0.72rem;
+  color: #c4d0ca;
+}

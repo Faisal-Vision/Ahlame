@@ -1,0 +1,81 @@
+<div class="lx">
+
+  <div class="lx__bg">
+    <div class="lx__blob lx__blob--1"></div>
+    <div class="lx__blob lx__blob--2"></div>
+  </div>
+
+  <div class="lx__card">
+
+    <!-- Logo -->
+    <div class="lx__logo">
+      <div class="lx__logo-icon">
+        <svg width="20" height="20" viewBox="0 0 36 36" fill="none">
+          <path d="M18 2L34 10V26L18 34L2 26V10L18 2Z" stroke="white" stroke-width="2" fill="rgba(255,255,255,0.15)"/>
+          <circle cx="18" cy="18" r="3.5" fill="white"/>
+        </svg>
+      </div>
+      <span>أهلاً</span>
+    </div>
+
+    <div class="lx__head">
+      <p>أدخل بياناتك للوصول إلى لوحة التحكم</p>
+    </div>
+
+    <!-- Error -->
+    <div class="lx__alert" *ngIf="errorMessage">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+      </svg>
+      {{ errorMessage }}
+    </div>
+
+    <form [formGroup]="loginForm" (keydown.enter)="signIn()">
+
+      <!-- Email -->
+      <div class="lx__field" [class.lx__field--err]="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
+        <label>البريد الإلكتروني</label>
+        <div class="lx__input" [class.lx__input--focus]="false">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+          <input type="text" formControlName="email" placeholder="admin@ahlame.org" autocomplete="username" dir="ltr"/>
+        </div>
+        <span class="lx__err" *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">البريد الإلكتروني مطلوب</span>
+      </div>
+
+      <!-- Password -->
+      <div class="lx__field" [class.lx__field--err]="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+        <label>كلمة المرور</label>
+        <div class="lx__input">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+          </svg>
+          <input [type]="showPassword ? 'text' : 'password'" formControlName="password" placeholder="••••••••" autocomplete="current-password" dir="ltr"/>
+          <button type="button" class="lx__eye" (click)="showPassword = !showPassword" tabindex="-1">
+            <svg *ngIf="!showPassword" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>
+            </svg>
+            <svg *ngIf="showPassword" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/>
+              <line x1="1" y1="1" x2="23" y2="23"/>
+            </svg>
+          </button>
+        </div>
+        <span class="lx__err" *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">كلمة المرور مطلوبة</span>
+      </div>
+
+      <button type="button" class="lx__btn" (click)="signIn()" [disabled]="isLoading">
+        <span *ngIf="!isLoading">دخول</span>
+        <span class="lx__dots" *ngIf="isLoading">
+          <span></span><span></span><span></span>
+        </span>
+      </button>
+
+    </form>
+
+    <p class="lx__copy">© 2025 منصة أحلامي</p>
+  </div>
+
+</div>

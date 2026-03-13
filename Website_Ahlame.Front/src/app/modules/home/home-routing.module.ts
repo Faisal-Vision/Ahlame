@@ -18,46 +18,14 @@ import { ContactComponent } from './components/contact/contact.component';
 import { Error404Component } from './components/error-404/error-404.component';
 import { TermsAndConditionsComponent } from './components/terms-and-conditions/terms-and-conditions.component';
 import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-policy.component';
+import { ContactAdminComponent } from '../contact-admin/contact-admin.component';
+import { AuthGuard } from 'src/app/shared/guard/admin.guard';
 
 
 const routes: Routes = [
-
   {
     path: '',
-    component: HomeComponent
-  },
-  {
-    path: '',
-    component: BannerAreaComponent
-  },
-  {
-    path: '',
-    component: ServiceAreaComponent
-  },
-  {
-    path: '',
-    component: AboutAreaComponent
-  },
-  {
-    path: '',
-    component: CounterAreaComponent
-  },
-  {
-    path: '',
-    component: CaseAreaComponent
-  },
-  {
-    path: '',
-    component: OfferAreaComponent
-  },
-
-  {
-    path: '',
-    component: ProcessAreaComponent
-  },
-  {
-    path: '',
-    component: FooterComponent
+    component: HomeComponent  // ✅ HomeComponent يحتوي على كل الـ sub-components
   },
   {
     path: 'service',
@@ -67,18 +35,14 @@ const routes: Routes = [
     path: 'service-details/:name',
     component: ServiceDetailsComponent
   },
-
-  // ─── Portfolio list (صفحة القائمة) ───────────────────────────────────────
   {
     path: 'case',
-    component: CaseListComponent   // <-- يعرض القائمة (id = undefined)
+    component: CaseListComponent
   },
-
-{
-  path: 'case/:id',         // ✅ يتطابق مع routerLink في الكاردات
-  component: CaseListComponent
-},
-
+  {
+    path: 'case/:id',
+    component: CaseListComponent
+  },
   {
     path: 'about',
     component: AboutComponent
@@ -95,8 +59,13 @@ const routes: Routes = [
     path: 'contact',
     component: ContactComponent
   },
-  { path: '**', component: Error404Component, pathMatch: 'full' },
+  {
+    path: 'contact-admin',
+    component: ContactAdminComponent,
+      canActivate: [AuthGuard]  
 
+  },
+  { path: '**', component: Error404Component, pathMatch: 'full' }
 ];
 
 @NgModule({

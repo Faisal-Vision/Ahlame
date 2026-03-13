@@ -19,7 +19,7 @@
   </section>
 
   <!-- ═══ Contact Info Cards ═══ -->
-  <section class="contact-info-strip pt-60 pb-0">
+  <!-- <section class="contact-info-strip pt-60 pb-0">
     <div class="container">
       <div class="row g-4">
 
@@ -59,7 +59,7 @@
             <div class="contact-info-card__body">
               <span class="contact-info-card__label">{{ "Location" | translate }}</span>
               <span class="contact-info-card__value">
-                {{ "Kingdom of Saudi Arabia – Riyadh – Eastern Ring Road." | translate }}
+                {{ "Amman, Jordan - Tabarbour – Tareq St, Islamic International Arab Bank Complex, Building No. 110, 4th Floor – Office 401" | translate }}
               </span>
             </div>
           </div>
@@ -67,7 +67,7 @@
 
       </div>
     </div>
-  </section>
+  </section> -->
 
   <!-- ═══ Contact Form + Left Panel ═══ -->
   <section class="contact-area pt-60 pb-120 cssanimation fadeInBottom">
@@ -106,7 +106,7 @@
                 <span class="cp-icon"><i class="fa-solid fa-location-dot"></i></span>
                 <div>
                   <small>{{ "Location" | translate }}</small>
-                  <span>{{ "Kingdom of Saudi Arabia – Riyadh – Eastern Ring Road." | translate }}</span>
+                  <span>{{ "Amman, Jordan - Tabarbour – Tareq St, Islamic International Arab Bank Complex, Building No. 110, 4th Floor – Office 401" | translate }}</span>
                 </div>
               </li>
             </ul>
@@ -144,42 +144,55 @@
 
 
           <div class="contact__form">
-            <form action="#">
+            <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
               <div class="form-row">
                 <div class="form-group">
                   <label for="name">{{ "Your Name" | translate }}</label>
-                  <input id="name" type="text"/>
+                  <input id="name" type="text" formControlName="name" 
+                         [class.is-invalid]="formSubmitted && formControl['name'].invalid" />
+                  <div *ngIf="formSubmitted && formControl['name'].invalid" class="invalid-feedback">
+                    <span class="text-danger mb-2" *ngIf="formControl['name'].errors?.['required']">{{ "required" | translate }}</span>
+                  </div>
                 </div>
                 <div class="form-group">
                   <label for="email">{{ "Your Email" | translate }}</label>
-                  <input id="email" type="email"  />
+                  <input id="email" type="email" formControlName="email"
+                         [class.is-invalid]="formSubmitted && formControl['email'].invalid" />
+                  <div *ngIf="formSubmitted && formControl['email'].invalid" class="invalid-feedback">
+                    <span class="text-danger mb-2" *ngIf="formControl['email'].errors?.['required']">{{ "required" | translate }}</span>
+                    <span class="text-danger mb-2" *ngIf="formControl['email'].errors?.['email']">{{ "required" | translate }}</span>
+                  </div>
                 </div>
               </div>
 
               <div class="form-row">
                 <div class="form-group">
                   <label for="phone">{{ "Phone" | translate }}</label>
-                  <input id="phone" type="tel"  />
+                  <input id="phone" type="tel" formControlName="phone" />
                 </div>
                 <div class="form-group">
                   <label for="subject">{{ "Subject" | translate }}</label>
-                  <input id="subject" type="text" />
+                  <input id="subject" type="text" formControlName="subject" />
                 </div>
               </div>
 
               <div class="form-group form-group--full">
                 <label for="message">{{ "Write Message" | translate }}</label>
-                <textarea id="message" rows="5"
-                  ></textarea>
+                <textarea id="message" rows="5" formControlName="message"
+                          [class.is-invalid]="formSubmitted && formControl['message'].invalid"></textarea>
+                <div *ngIf="formSubmitted && formControl['message'].invalid" class="invalid-feedback">
+                  <span class="text-danger mb-2" *ngIf="formControl['message'].errors?.['required']">{{ "required" | translate }}</span>
+                </div>
               </div>
 
-              <button type="submit" class="contact__submit-btn">
-                {{ "Send Message" | translate }}
+              <button type="submit" class="contact__submit-btn" [disabled]="isLoading">
+                <span *ngIf="!isLoading">{{ "Send Message" | translate }}</span>
+                <span *ngIf="isLoading">{{ "Sending..." | translate }}</span>
                 <i class="fa-regular fa-arrow-left-long"></i>
               </button>
             </form>
           </div>
-
+          <!-- <img src="../../../../../assets/images/banner/contact.png" class="image-contact" /> -->
         </div>
       </div>
     </div>

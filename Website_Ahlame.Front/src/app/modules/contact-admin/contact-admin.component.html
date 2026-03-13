@@ -1,0 +1,129 @@
+<div class="container mt-3 mb-3">
+
+
+  <div class="row justify-content-center mt-4">
+    <div class="col-lg-12 cssanimation fadeInRight">
+      <div class="card border p-0">
+        <div class="card-header card-header header-overlay p-2 d-flex align-items-center">
+          <div class="mb-0">
+            <i class="fa-solid fa-star-half-stroke color-icon"></i>{{ 'ContactAdmin' | translate }}
+          </div>
+        </div>
+        <div class="card-body mb-3">
+          <button class="btn btn-one" (click)="openPoupp(0)"><i class="fa-solid fa-circle-plus"></i>
+            {{'add'| translate}} </button>
+          <div class="card-body" *ngIf="userList.length != 0">
+
+            <div class=" table-responsive">
+              <!--start table-->
+              <table class="table  table-bordered table-striped">
+           <thead>
+  <tr>
+    <th>#</th>
+    <th>{{'Your Name' | translate}}</th>
+    <th>{{'Email' | translate}}</th>
+    <th>{{'Phone' | translate}}</th>
+    <th>{{'Subject' | translate}}</th>
+    <th>{{'Write Message' | translate}}</th>
+    <th>{{'edit' | translate}}</th>
+    <th>{{'delete' | translate}}</th>
+  </tr>
+</thead>
+<tbody>
+  <tr *ngFor="let res of userList"
+>
+    <td>{{res.id}}</td>
+    <td>{{res.name}}</td>
+    <td>{{res.email}}</td>
+    <td>{{res.phone}}</td>
+    <td>{{res.subject}}</td>
+    <td>{{res.message}}</td>
+    <td><i (click)="openPoupp(res.id)" class="fa-solid fa-gear icons-title-accept"></i></td>
+    <td><i (click)="Delete(res.id)" class="fa-regular fa-circle-xmark icons-title-danger"></i></td>
+  </tr>
+</tbody>
+              </table>
+            </div>
+  
+          </div>
+  
+          <div class="row mt-3 mb-3" *ngIf="userList.length === 0">
+            <div class="text-center">
+              <!-- <img class="nodata" src="../../../../../assets/Img/nodata.png" /> -->
+              <div class="nodatatext"> {{ 'NoData' | translate }}</div>
+  
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<ng-template #popupContent>
+  <div class="container-fluid">
+    <form [formGroup]="Form">
+      <div class="row mt-3 mb-3 styles-forms">
+
+        <div class="col-lg-6">
+          <label><span class="span-answaretemplate-form" style="color:red">*</span> {{'Your Name' | translate}}
+            <span *ngIf="formControl['name'].touched && formControl['name'].invalid" class="text-danger">
+              {{'required' | translate}}
+            </span>
+          </label>
+          <input type="text" class="form-control" formControlName="name"/>
+        </div>
+
+        <div class="col-lg-6">
+          <label><span class="span-answaretemplate-form" style="color:red">*</span> {{'Email' | translate}}
+            <span *ngIf="formControl['email'].touched && formControl['email'].invalid" class="text-danger">
+              {{'required' | translate}}
+            </span>
+          </label>
+          <input type="email" class="form-control" formControlName="email"/>
+        </div>
+
+        <div class="col-lg-6">
+          <label>{{'Phone' | translate}}</label>
+          <input type="text" class="form-control" formControlName="phone"/>
+        </div>
+
+        <div class="col-lg-6">
+          <label>{{'Subject' | translate}}</label>
+          <input type="text" class="form-control" formControlName="subject"/>
+        </div>
+
+        <div class="col-lg-12">
+          <label><span class="span-answaretemplate-form" style="color:red">*</span> {{'Write Message' | translate}}
+            <span *ngIf="formControl['message'].touched && formControl['message'].invalid" class="text-danger">
+              {{'required' | translate}}
+            </span>
+          </label>
+          <textarea class="form-control" formControlName="message" rows="3"></textarea>
+        </div>
+
+      </div>
+    </form>
+  </div>
+</ng-template>
