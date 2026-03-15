@@ -3,5 +3,11 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { AppModule } from './app/app.module';
 
 
-platformBrowserDynamic().bootstrapModule(AppModule)
+import { inject } from '@vercel/analytics';
+
+platformBrowserDynamic()
+  .bootstrapModule(AppModule)
+  .then(() => {
+    inject();
+  })
   .catch(err => console.error(err));

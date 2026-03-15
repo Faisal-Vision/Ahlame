@@ -25,6 +25,7 @@
     "@microsoft/signalr": "^8.0.7",
     "@ngx-translate/core": "^15.0.0",
     "@ngx-translate/http-loader": "^8.0.0",
+    "@vercel/analytics": "^2.0.1",
     "crypto-js": "^4.2.0",
     "dom-to-image": "^2.2.1",
     "file-saver": "^2.0.5",
